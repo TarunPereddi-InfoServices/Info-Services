@@ -193,6 +193,7 @@ const Industry = () => {
     );
           }
   return (
+<div className="relative">
     <div className="bg-[#151515] min-h-screen flex flex-col items-center justify-center p-8">
       <h1 className="text-6xl font-extralight text-white mb-4 text-center">Industries</h1>
       <p className="text-base font-normal text-[#878787] mb-8 text-center">Crafting responsive designs for user engagement</p>
@@ -202,6 +203,7 @@ const Industry = () => {
         ))}
       </div>
     </div>
+</div>
   );
 };
 export default Industry;

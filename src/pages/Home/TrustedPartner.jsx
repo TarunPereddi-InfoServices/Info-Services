@@ -21,6 +21,7 @@ const TrustedPartner = () => {
   ];
 
   return (
+<div className="relative">
     <section className="py-16 bg-white min-h-screen flex items-center justify-center">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight mb-12">Trusted By</h2>
@@ -43,6 +44,7 @@ const TrustedPartner = () => {
         </div>
       </div>
     </section>
+</div>
   );
 };
 

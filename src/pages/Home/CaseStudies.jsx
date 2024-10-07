@@ -153,6 +153,7 @@ const CaseStudyCard = ({ title, description, images, isWide,index }) => {
 };
 const CaseStudies = () => {
   return (
+<div className="relative">
     <div className="bg-[#151515] min-h-screen p-8">
       <div className="max-w-7xl mx-auto">
         {/* First Row */}
@@ -169,6 +170,7 @@ const CaseStudies = () => {
         </div>
       </div>
     </div>
+</div>
   );
 };
 export default CaseStudies;

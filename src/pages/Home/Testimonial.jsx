@@ -101,6 +101,7 @@ const Testimonial = () => {
   }
 
   return (
+<div className="relative">
     <div className="flex flex-col min-h-screen bg-[#151515] text-white px-6 py-12">
       <div className="flex flex-col mb-12">
         <motion.h2
@@ -157,6 +158,7 @@ const Testimonial = () => {
         </div>
       </div>
     </div>
+</div>
   );
 };
 
