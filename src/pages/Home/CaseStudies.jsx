@@ -153,8 +153,8 @@ const CaseStudyCard = ({ title, description, images, isWide,index }) => {
 };
 const CaseStudies = () => {
   return (
-<div className="relative">
-    <div className="bg-[#151515] min-h-screen p-8">
+<div className="sticky top-0 z-0 h-screen overflow-hidden">
+    <div className="bg-[#151515] min-h-screen p-8 rounded-t-[50px]">
       <div className="max-w-7xl mx-auto">
         {/* First Row */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">

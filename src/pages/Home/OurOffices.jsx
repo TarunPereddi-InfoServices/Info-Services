@@ -49,7 +49,7 @@ const OurOffices = () => {
   }, []);
 
   return (
-<div className="relative">
+<div className="sticky top-0 z-0 h-screen">
     <section className="bg-black min-h-screen flex items-center justify-center text-white py-16 px-4">
       <div className="w-full max-w-8xl min-h-96">
         <h2 className="mx-auto text-center text-4xl sm:text-5xl md:text-6xl font-extralight mb-10 sm:mb-16 md:mb-20">Our Offices</h2>
@@ -124,7 +124,7 @@ const OurOffices = () => {
         </div>
       </div>
     </section>
-</div>
+    </div>
   );
 };
 

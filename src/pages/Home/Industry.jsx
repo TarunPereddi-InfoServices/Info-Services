@@ -193,8 +193,8 @@ const Industry = () => {
     );
           }
   return (
-<div className="relative">
-    <div className="bg-[#151515] min-h-screen flex flex-col items-center justify-center p-8">
+<div className="sticky top-0 z-0 h-screen overflow-hidden">
+    <div className="bg-[#151515] min-h-screen flex flex-col items-center justify-center p-8 rounded-t-[50px]">
       <h1 className="text-6xl font-extralight text-white mb-4 text-center">Industries</h1>
       <p className="text-base font-normal text-[#878787] mb-8 text-center">Crafting responsive designs for user engagement</p>
       <div className="flex justify-center space-x-4 overflow-x-auto pb-4">

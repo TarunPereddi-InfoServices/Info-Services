@@ -39,12 +39,12 @@ const Landing = () => {
     setCurrentSlide(index);
   };
   useEffect(() => {
-    const timer = setInterval(goToNextSlide, 5000); // Change interval to 5000ms (5 seconds)
+    const timer = setInterval(goToNextSlide, 7000); // Change interval to 5000ms (5 seconds)
     return () => clearInterval(timer);
   }, [goToNextSlide]);
   return (
-  <div className="relative">
-          <div className="relative h-screen w-full overflow-hidden">
+  <div className="sticky top-0 z-0 h-screen">
+          {/* <div className="relative h-screen w-full overflow-hidden"> */}
           <div className="relative h-full w-full flex">
             {/* Slider Container */}
             <div className="flex w-full h-full transition-transform ease-in-out duration-700" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
@@ -89,7 +89,7 @@ const Landing = () => {
                 </div>
               </div>
             </div>
-            </div>
+            {/* </div> */}
   </div>
   );
 };

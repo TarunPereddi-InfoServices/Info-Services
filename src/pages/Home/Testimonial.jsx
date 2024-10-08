@@ -58,6 +58,7 @@ const Testimonial = () => {
 
   if (!isMobile) {
     return (
+
       <div className="flex justify-center min-h-screen bg-[#151515] text-white">
         <div className="flex-1 min-h-screen p-10 space-y-20 scrollbar-hide pt-32 no-scrollbar">
           {testimonials.map((testimonial, index) => (
@@ -97,11 +98,12 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
+     
     );
   }
 
   return (
-<div className="relative">
+
     <div className="flex flex-col min-h-screen bg-[#151515] text-white px-6 py-12">
       <div className="flex flex-col mb-12">
         <motion.h2
@@ -158,7 +160,7 @@ const Testimonial = () => {
         </div>
       </div>
     </div>
-</div>
+
   );
 };
 

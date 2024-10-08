@@ -21,8 +21,8 @@ const TrustedPartner = () => {
   ];
 
   return (
-<div className="relative">
-    <section className="py-16 bg-white min-h-screen flex items-center justify-center">
+<div className="sticky top-0 z-0 min-h-screen overflow-hidden">
+    <section className="py-16 bg-white min-h-screen flex items-center justify-center rounded-t-[50px]">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-extralight mb-12">Trusted By</h2>
         
