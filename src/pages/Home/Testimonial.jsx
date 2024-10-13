@@ -130,7 +130,7 @@ const Testimonial = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="bg-[#1C1C1C] rounded-3xl p-8 mb-12"
+            className="bg-[#1C1C1C] rounded-3xl p-8 mb-12 lg:border-none border border-white"
           >
             <div className="flex flex-col mb-6">
               <img 
@@ -146,13 +146,13 @@ const Testimonial = () => {
         <div className="flex justify-center space-x-4">
           <button
             onClick={prevSlide}
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white lg:border-none"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white lg:border-none"
           >
             <ChevronRight className="w-6 h-6" />
           </button>

@@ -66,7 +66,7 @@ const IndustryCard = ({ title, image, description,isMobile ,currentSlide, goToSl
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
           {/* Content */}
-          <div className="relative h-full flex flex-col justify-center items-center px-8 text-center">
+          <div className="relative h-full flex flex-col justify-center items-center px-8 text-center min-h-[600px]">
             <h3 className="text-3xl font-light text-white mb-6">{title}</h3>
             <p className="text-white/90 text-sm leading-relaxed mb-8">
               {description}
@@ -160,11 +160,11 @@ const Industry = () => {
             return (
               <div className="bg-[#151515] h-screen relative overflow-hidden">
               <div className="pt-12 px-6 mb-8">
-              <h1 className="text-[32px] font-extralight text-white">
+              <h1 className="text-[32px] font-extralight text-white mb-4">
                 Industries
                 </h1>
                 </div>
-                <div className="relative h-[calc(50vh-140px)]">
+                <div className="relative h-[calc(50vh-140px)] px-10">
                 <AnimatePresence initial={false} mode="wait">
                 <IndustryCard 
                   key={currentSlide} 
