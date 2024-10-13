@@ -47,9 +47,9 @@ const Landing = () => {
           {/* <div className="relative h-screen w-full overflow-hidden"> */}
           <div className="relative h-full w-full flex">
             {/* Slider Container */}
-            <div className="flex w-full h-full transition-transform ease-in-out duration-700" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="flex w-full h-full transition-transform ease-in-out duration-700 sticky left-0" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
               {carouselData.map((item, index) => (
-                <div key={index} className="flex-shrink-0 w-full h-full relative">
+              <div key={index} className="flex-shrink-0 w-full h-full relative">
                   <img
                     src={item.image}
                     alt={`Carousel image ${index + 1}`}

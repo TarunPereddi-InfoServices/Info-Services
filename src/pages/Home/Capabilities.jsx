@@ -133,12 +133,14 @@ const Capabilities = () => {
                   </span>{' '}
                   Vestibulum fermentum sit amet nibh sed cursus. Vestibulum est nunc.
                 </p>
+                <div className="flex justify-center">
                 <Button 
                   variant="outline" 
-                  className="text-xl sm:text-2xl font-extralight rounded-full border-zinc-800 text-zinc-600 px-8 py-4 sm:px-12 sm:py-7 hover:bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] hover:text-white transition-all duration-300 ease-in-out bg-[length:200%_100%] hover:bg-[100%_0] cursor-pointer"
+                  className="text-xl sm:text-2xl font-extralight rounded-full border-zinc-800 text-zinc-600 px-8 py-4 sm:px-12 sm:py-7 hover:bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] hover:text-white transition-all duration-300 ease-in-out bg-[length:200%_100%] hover:bg-[100%_0] cursor-pointer mx-auto"
                 >
                   View More Capabilities
                 </Button>
+                </div>
               </>
             )}
           </motion.div>
