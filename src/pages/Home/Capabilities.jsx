@@ -56,25 +56,30 @@ const CapabilityCard = ({ title, icon, isActive, onHover, onLeave }) => (
     onHoverStart={onHover}
     onHoverEnd={onLeave}
   >
-    <motion.div
-      className="flex items-center space-x-4"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: isActive ? 0 : 1 }}
-      transition={{ duration: 0.2 }}
-    >
-      <div className="w-12 h-12 rounded-lg flex items-center justify-center">
-        <img src={icon} alt={title} className="w-10 h-10" />
-      </div>
-      <span className="text-lg font-medium">{title}</span>
-    </motion.div>
-    <motion.span
-      className="absolute inset-0 flex items-center justify-center text-lg font-medium"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isActive ? 1 : 0 }}
-      transition={{ duration: 0.2 }}
-    >
-      Know More
-    </motion.span>
+    {!isActive && (
+      <motion.div
+        className="flex items-center space-x-4"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+      >
+        <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+          <img src={icon} alt={title} className="w-10 h-10" />
+        </div>
+        <span className="text-lg font-medium">{title}</span>
+      </motion.div>
+    )}
+
+    {isActive && (
+      <motion.span
+        className="absolute inset-0 flex items-center justify-center text-lg font-medium"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+      >
+        Know More
+      </motion.span>
+    )}
   </motion.div>
 );
 
@@ -82,7 +87,8 @@ const Capabilities = () => {
   const [activeCapability, setActiveCapability] = useState(null);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 sm:p-8 overflow-hidden">
+    <div className="sticky top-0 z-0 h-screen overflow-hidden">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 sm:p-8 overflow-hidden rounded-t-[50px]">
       <div className="w-full max-w-7xl">
         <h1 className="text-4xl sm:text-6xl font-light bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text mb-8 sm:mb-12">
           Capabilities
@@ -127,17 +133,20 @@ const Capabilities = () => {
                   </span>{' '}
                   Vestibulum fermentum sit amet nibh sed cursus. Vestibulum est nunc.
                 </p>
+                <div className="flex justify-center">
                 <Button 
-              variant="outline" 
-              className="text-xl sm:text-2xl font-extralight rounded-full border-zinc-800 text-zinc-600 px-8 py-4 sm:px-12 sm:py-7 hover:bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] hover:text-white transition-all duration-300 ease-in-out bg-[length:200%_100%] hover:bg-[100%_0] cursor-pointer"
-            >
-              View More Capabilities
-            </Button>
+                  variant="outline" 
+                  className="text-xl sm:text-2xl font-extralight rounded-full border-zinc-800 text-zinc-600 px-8 py-4 sm:px-12 sm:py-7 hover:bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] hover:text-white transition-all duration-300 ease-in-out bg-[length:200%_100%] hover:bg-[100%_0] cursor-pointer mx-auto"
+                >
+                  View More Capabilities
+                </Button>
+                </div>
               </>
             )}
           </motion.div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
