@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import Carousel1 from '../../assets/images/carousel/Carousel1.png';
 import Carousel2 from '../../assets/images/carousel/Carousel2.png';
@@ -55,18 +56,18 @@ const Landing = () => {
                     alt={`Carousel image ${index + 1}`}
                     className="w-full h-full object-cover"
                   />
-        
-                    
+            
                     {index === 0 ? (
                       <div className="absolute inset-0 flex flex-col justify-center items-center text-white p-4">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-center heading_font">{item.title}</h1>
-                        <p className="text-base sm:text-lg md:text-xl mb-8 text-center max-w-2xl">{item.subtitle}</p>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-light mb-4 text-center heading_font">{item.title}</h1>
+                        <p className="text-base mb-8 text-center max-w-xl">{item.subtitle}</p>
                       </div>
                     ) : (
                       <div className="absolute inset-0 flex flex-col justify-center items-start w-full sm:w-4/6 p-8 sm:p-12 md:p-16">
-                        {item.type && <span className="bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] bg-clip-text text-transparent font-semibold mb-2 heading_font text-sm sm:text-base md:text-lg">{item.type}</span>}
-                        <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 heading_font">{item.title}</h2>
-                        <p className="text-white mb-6 max-w-2xl heading_font text-sm sm:text-base md:text-lg">{item.subtitle}</p>
+                        {item.type && <button className="bg-purple-600  text-white px-6 py-1
+                         rounded-full font-extralight mb-4 text-sm">{item.type}</button>}
+                        <h2 className="text-white text-3xl sm:text-4xl md:text-5xl max-w-[707px] font-normal mb-4 heading_font">{item.title}</h2>
+                        <p className="text-white mb-6 max-w-[800px] heading_font text-sm sm:text-base md:text-base">{item.subtitle}</p>
                         {item.buttonText && (
                           <button className="bg-transparent border border-white text-white px-4 py-2 sm:px-6 sm:py-2 rounded-full hover:bg-white hover:text-black transition-colors text-sm sm:text-base">
                             {item.buttonText}

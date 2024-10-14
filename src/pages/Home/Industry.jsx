@@ -158,9 +158,9 @@ const Industry = () => {
           }, [isMobile, goToNextSlide]);
           if (isMobile) {
             return (
-              <div className="bg-[#151515] h-screen relative overflow-hidden">
+              <div className="bg-[#151515] min-h-screen relative overflow-hidden">
               <div className="pt-12 px-6 mb-8">
-              <h1 className="text-[32px] font-extralight text-white mb-4">
+              <h1 className="text-[32px] font-extralight text-white m-4">
                 Industries
                 </h1>
                 </div>
@@ -193,7 +193,7 @@ const Industry = () => {
     );
           }
   return (
-<div className="sticky top-0 z-0 h-screen overflow-hidden">
+<div className="sticky top-[-20%] z-0 min-h-screen overflow-hidden">
     <div className="bg-[#151515] min-h-screen flex flex-col items-center justify-center p-8 rounded-t-[50px]">
       <h1 className="text-6xl font-extralight text-white mb-4 text-center">Industries</h1>
       <p className="text-base font-normal text-[#878787] mb-8 text-center">Crafting responsive designs for user engagement</p>
