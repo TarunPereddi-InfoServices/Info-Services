@@ -115,6 +115,24 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
   // Determine if the animation should be bottom-to-top or top-to-bottom
   const isBottomToTop = index === 1 || index === 3; // 2nd and 4th cards
 
+  const slideVariants = {
+    enter: (direction) => ({
+      y: direction > 0 ? '100%' : '-100%',
+      opacity: 0,
+    }),
+    center: {
+      y: 0,
+      opacity: 1,
+    },
+    exit: (direction) => ({
+      y: direction < 0 ? '100%' : '-100%',
+      opacity: 0,
+    }),
+  };
+
+
+
+
   return (
     <motion.div 
       whileHover={{ scale: 1.02 }}
@@ -147,7 +165,7 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
         ) : (
           // Small cards use directional sliding animation
           <div className="relative h-full">
-            {images.map((img, imgIndex) => (
+            {/* {images.map((img, imgIndex) => (
               <motion.img
                 key={imgIndex}
                 src={img}
@@ -170,7 +188,31 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
                   ease: "easeInOut"
                 }}
               />
-            ))}
+            ))} */}
+
+            <AnimatePresence initial={false} custom={isBottomToTop ? 1 : -1}>
+              <motion.img
+                key={currentImageIndex}
+                src={images[currentImageIndex]}
+                alt={title}
+                className={`absolute w-full h-full object-cover ${
+                  isHovered ? 'brightness-50' : 'brightness-40 grayscale'
+                }`}
+                variants={slideVariants}
+                custom={isBottomToTop ? 1 : -1}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  y: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.5 }
+                }}
+              />
+            </AnimatePresence>
+
+
+
+
           </div>
         )}
       </div>
