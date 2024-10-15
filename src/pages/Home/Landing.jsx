@@ -48,9 +48,10 @@ const Landing = () => {
           {/* <div className="relative h-screen w-full overflow-hidden"> */}
           <div className="relative h-full w-full flex">
             {/* Slider Container */}
-            <div className="flex w-full h-full transition-transform ease-in-out duration-700 sticky left-0" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="sticky left-0 z-0 flex w-full h-full transition-transform ease-in-out duration-1000 " style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
               {carouselData.map((item, index) => (
-              <div key={index} className="flex-shrink-0 w-full h-full relative">
+              <div key={index} className="flex-shrink-0 w-full h-full relative sticky left-0 z-0 h-screen">
+        
                   <img
                     src={item.image}
                     alt={`Carousel image ${index + 1}`}
@@ -69,7 +70,7 @@ const Landing = () => {
                         <h2 className="text-white text-3xl sm:text-4xl md:text-5xl max-w-[707px] font-normal mb-4 heading_font">{item.title}</h2>
                         <p className="text-white mb-6 max-w-[800px] heading_font text-sm sm:text-base md:text-base">{item.subtitle}</p>
                         {item.buttonText && (
-                          <button className="bg-transparent border border-white text-white px-4 py-2 sm:px-6 sm:py-2 rounded-full hover:bg-white hover:text-black transition-colors text-sm sm:text-base">
+                          <button className="bg-transparent border border-white text-white px-4 py-2 sm:px-6 sm:py-2 rounded-full hover:bg-purple-500 hover:  hover:border-none   hover:text-white transition-colors text-sm sm:text-base">
                             {item.buttonText}
                           </button>
                         )}

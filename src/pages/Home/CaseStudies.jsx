@@ -68,7 +68,7 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [images.length]);
   if (isMobile) {
@@ -78,8 +78,7 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
-      
+        transition={{ duration: 1 }}
       >
         <div className="h-full flex flex-col">
           <div className="relative flex-1 bg-[#151515]">
@@ -92,7 +91,10 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
               <h3 className="text-s underline underline-offset-1 font-normal mb-2 text-[#DFDFDF] ">Case Studies</h3>
               <h2 className="text-2xl font-sans font-bold mb-2 bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text">{title}</h2>
               <p className="text-white/90 text-sm leading-relaxed mb-8">{description}</p>
-              <div className="absolute bottom-16 left-0 right-0 z-30">
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-16 left-0 right-0 z-30">
                 <div className="flex justify-center items-center space-x-3 px-6">
                   {caseStudiesData.map((_, i) => (
                     <button
@@ -106,15 +108,11 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
       </motion.div>
     );
   }
   // Determine if the animation should be bottom-to-top or top-to-bottom
   const isBottomToTop = index === 1 || index === 3; // 2nd and 4th cards
-
   const slideVariants = {
     enter: (direction) => ({
       y: direction > 0 ? '100%' : '-100%',
@@ -129,10 +127,6 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
       opacity: 0,
     }),
   };
-
-
-
-
   return (
     <motion.div 
       whileHover={{ scale: 1.02 }}
@@ -158,7 +152,7 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 2 }}
+                transition={{ duration: 3 }}
               />
             </AnimatePresence>
           </div>
@@ -189,7 +183,6 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
                 }}
               />
             ))} */}
-
             <AnimatePresence initial={false} custom={isBottomToTop ? 1 : -1}>
               <motion.img
                 key={currentImageIndex}
@@ -204,15 +197,12 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
                 animate="center"
                 exit="exit"
                 transition={{
-                  y: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.5 }
+                  y: { type: "spring", stiffness: 50, damping: 20 },
+                  opacity: { duration: 1 },
+                  duration:2
                 }}
               />
             </AnimatePresence>
-
-
-
-
           </div>
         )}
       </div>
@@ -258,10 +248,9 @@ const CaseStudies = () => {
   }, [isMobile, goToNextSlide]);
   if (isMobile) {
     return (
-      <div className="bg-[#151515] h-screen relative overflow-hidden">
-        <div className="pt-12 px-6 mb-8">
-        </div>
-        <div className="relative h-[calc(100vh-140px)] px-10">
+    <>
+      <div className="bg-[#151515] min-h-screen relative overflow-hidden pt-12  mb-8">
+        <div className="relative h-[calc(100vh-140px)] p-10 mx-10 rounded-3xl overflow-hidden">
           <AnimatePresence initial={false} mode="wait">
             <CaseStudyCard 
               key={currentSlide} 
@@ -287,6 +276,7 @@ const CaseStudies = () => {
           </button>
         </div>
       </div>
+      </>
     );
   }
 return (

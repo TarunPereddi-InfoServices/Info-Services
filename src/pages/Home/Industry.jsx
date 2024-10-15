@@ -52,7 +52,7 @@ const IndustryCard = ({ title, image, description,isMobile ,currentSlide, goToSl
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 2 }}
     >
       <div className="h-full flex flex-col">
         {/* Grey background at the top */}
@@ -158,13 +158,13 @@ const Industry = () => {
           }, [isMobile, goToNextSlide]);
           if (isMobile) {
             return (
-              <div className="bg-[#151515] min-h-screen relative overflow-hidden">
+              <div className="bg-[#151515] min-h-screen relative overflow-hidden ">
               <div className="pt-12 px-6 mb-8">
               <h1 className="text-[32px] font-extralight text-white m-4">
                 Industries
                 </h1>
                 </div>
-                <div className="relative h-[calc(50vh-140px)] px-10">
+                <div className="relative h-[calc(50vh-140px)] px-10 mx-10 rounded-xl ">
                 <AnimatePresence initial={false} mode="wait">
                 <IndustryCard 
                   key={currentSlide} 
