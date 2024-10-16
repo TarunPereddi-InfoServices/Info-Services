@@ -68,7 +68,8 @@ export default function Header() {
       { name: 'Business Intelligence', description: 'Data insights, real-world results - Business intelligence drives your transformation' },
       { name: 'XOps', description: "Don't let your development process hold you back - Let us help you embrace Xops" },
       { name: 'Cloud Native', description: 'Always evolving, never standing still: Cloud-powered innovation' },
-      { name: 'Data Analytics & Engineering', description: 'Our data engineering and analytics services pave the way for actionable insights and strategic decision-making.' },
+      // info: Link property added to be used for naviagtion
+      { name: 'Data Analytics & Engineering', description: 'Our data engineering and analytics services pave the way for actionable insights and strategic decision-making.', link: '/dataEngineering' },
       { name: 'Salesforce', description: "Don't just manage your business, transform it with Salesforce" },
       { name: 'Quality Engineering', description: 'From startups to global brands - we elevate quality for businesses of all sizes' },
       { name: 'Mobility Services', description: 'App development made easy. We handle the tech, you focus on your vision' },
@@ -97,6 +98,8 @@ export default function Header() {
       { title: 'What We Do', submenu: 'whatWeDo' },
       { title: 'Insights', submenu: 'insights' },
       { title: 'Contact', link: '/contact' },
+      // info: for Mobile view navigation
+      { title: 'DataEngineering', link: '/dataEngineering' },
     ],
     whatWeDo: Object.keys(whatWeDoContent).map(category => ({ title: category, submenu: category })),
     insights: [
@@ -120,9 +123,8 @@ export default function Header() {
   return (
     <motion.header
       ref={headerRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        isAtTop ? 'bg-transparent' : 'bg-black bg-opacity-90'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${isAtTop ? 'bg-transparent' : 'bg-black bg-opacity-90'
+        }`}
       initial={{ y: 0 }}
       animate={{ y: isVisible ? 0 : '-100%' }}
       transition={{ duration: 0.3 }}
@@ -133,13 +135,12 @@ export default function Header() {
           <img src={Logo} alt="INFO SERVICES" className="h-10" />
         </Link>
         <nav className="hidden md:flex items-center space-x-8">
-          <Link 
-            to="/about-us" 
-            className={`text-lg font-light ${
-              location.pathname === '/about-us' 
-                ? 'bg-clip-text text-transparent bg-gradient-to-r from-[#5A7FCC] via-[#B93AD8] to-[#8F6EDB]' 
+          <Link
+            to="/about-us"
+            className={`text-lg font-light ${location.pathname === '/about-us'
+                ? 'bg-clip-text text-transparent bg-gradient-to-r from-[#5A7FCC] via-[#B93AD8] to-[#8F6EDB]'
                 : 'text-white hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-[#5A7FCC] hover:via-[#B93AD8] hover:to-[#8F6EDB]'
-            }`}
+              }`}
           >
             Who We Are
           </Link>
@@ -157,13 +158,12 @@ export default function Header() {
           >
             Insights
           </button>
-          <Link 
-            to="/contact" 
-            className={`text-lg font-light ${
-              location.pathname === '/contact' 
-                ? 'bg-clip-text text-transparent bg-gradient-to-r from-[#405E9E] via-[#8F23AE] to-[#684EB2]' 
+          <Link
+            to="/contact"
+            className={`text-lg font-light ${location.pathname === '/contact'
+                ? 'bg-clip-text text-transparent bg-gradient-to-r from-[#405E9E] via-[#8F23AE] to-[#684EB2]'
                 : 'text-white hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-[#5A7FCC] hover:via-[#B93AD8] hover:to-[#8F6EDB]'
-            }`}
+              }`}
           >
             Contact
           </Link>
@@ -184,11 +184,10 @@ export default function Header() {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`block w-full text-left py-4 px-6 text-3xl font-light text-white hover:bg-white hover:bg-opacity-10 transition-all duration-300 ${
-                    activeCategory === category 
+                  className={`block w-full text-left py-4 px-6 text-3xl font-light text-white hover:bg-white hover:bg-opacity-10 transition-all duration-300 ${activeCategory === category
                       ? 'font-semibold relative pl-8 before:content-[""] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-4 before:h-0.5 before:bg-white'
                       : ''
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>
@@ -197,10 +196,13 @@ export default function Header() {
             <div className="w-3/4 pl-4">
               <div className="grid grid-cols-3 gap-8">
                 {whatWeDoContent[activeCategory].map((item) => (
-                  <div key={item.name} className="p-4 rounded">
-                    <h4 className="text-2xl font-semibold text-white mb-2">{item.name}</h4>
-                    <p className="text-lg text-gray-200">{item.description}</p>
-                  </div>
+                  // info: from item object link string to navigate; if link there it navigate otherwise it will not. 
+                  <Link to={item.link ? item.link : ''}>
+                    <div key={item.name} className="p-4 rounded">
+                      <h4 className="text-2xl font-semibold text-white mb-2">{item.name}</h4>
+                      <p className="text-lg text-gray-200">{item.description}</p>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </div>
