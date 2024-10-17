@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
 import image11 from '../../assets/images/CaseStudies/image1/01.svg';
 import image12 from '../../assets/images/CaseStudies/image1/02.svg';
 import image13 from '../../assets/images/CaseStudies/image1/03.svg';
@@ -63,29 +62,82 @@ const caseStudiesData  = [
     images: [image61, image62, image63, image64]
   }
 ];
-const CaseStudyCard = ({ title, description, images, isWide,index }) => {
+const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, currentSlide, goToSlide}) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [images.length]);
-
+  if (isMobile) {
+    return (
+      <motion.div
+        className="absolute top-0 left-0 w-full h-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="h-full flex flex-col">
+          <div className="relative flex-1 bg-[#151515]">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+            <div className="relative h-full flex flex-col justify-center  px-6 py-12 text-left opacity-100 backdrop-blur-[1px] ">
+              <h3 className="text-s underline underline-offset-1 font-normal mb-2 text-[#DFDFDF] ">Case Studies</h3>
+              <h2 className="text-2xl font-sans font-bold mb-2 bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text">{title}</h2>
+              <p className="text-white/90 text-sm leading-relaxed mb-8">{description}</p>
+            </div>
+          </div>
+        </div>
+        <div className="absolute bottom-16 left-0 right-0 z-30">
+                <div className="flex justify-center items-center space-x-3 px-6">
+                  {caseStudiesData.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => goToSlide(i)}
+                      className={`w-12 h-[2px] transition-all ${
+                        currentSlide === i ? 'bg-white' : 'bg-gray-600'
+                      }`}
+                      aria-label={`Go to slide ${i + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
+      </motion.div>
+    );
+  }
   // Determine if the animation should be bottom-to-top or top-to-bottom
   const isBottomToTop = index === 1 || index === 3; // 2nd and 4th cards
+  const slideVariants = {
+    enter: (direction) => ({
+      y: direction > 0 ? '100%' : '-100%',
+      opacity: 0,
+    }),
+    center: {
+      y: 0,
+      opacity: 1,
+    },
+    exit: (direction) => ({
+      y: direction < 0 ? '100%' : '-100%',
+      opacity: 0,
+    }),
+  };
   return (
     <motion.div 
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 2 }}
-      className={`relative overflow-hidden rounded-lg ${
+      className={`relative overflow-hidden rounded-[1.5rem]  ${
         isWide ? 'w-full md:w-[66%]' : 'w-full md:w-[32%]'
       } h-[400px] bg-[#151515]`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative h-full overflow-hidden group">
+      <div className="relative h-full  overflow-hidden group">
         {isWide ? (
           // Wide cards (1st and last) use the original fade animation
           <div className="slide">
@@ -94,20 +146,20 @@ const CaseStudyCard = ({ title, description, images, isWide,index }) => {
                 key={currentImageIndex}
                 src={images[currentImageIndex]}
                 alt={title}
-                className={`absolute w-full h-full object-cover transition-all duration-500 ease-in-out ${
+                className={`absolute w-full h-full  object-cover transition-all duration-500 ease-in-out ${
                   isHovered ? 'brightness-50' : 'brightness-40 grayscale'
                 }`}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 2 }}
+                transition={{ duration: 3 }}
               />
             </AnimatePresence>
           </div>
         ) : (
           // Small cards use directional sliding animation
           <div className="relative h-full">
-            {images.map((img, imgIndex) => (
+            {/* {images.map((img, imgIndex) => (
               <motion.img
                 key={imgIndex}
                 src={img}
@@ -126,11 +178,31 @@ const CaseStudyCard = ({ title, description, images, isWide,index }) => {
                     : `${currentImageIndex * 100}%`,
                 }}
                 transition={{
-                  duration: 0.5,
+                  duration: 1.5,
                   ease: "easeInOut"
                 }}
               />
-            ))}
+            ))} */}
+            <AnimatePresence initial={false} custom={isBottomToTop ? 1 : -1}>
+              <motion.img
+                key={currentImageIndex}
+                src={images[currentImageIndex]}
+                alt={title}
+                className={`absolute w-full h-full object-cover ${
+                  isHovered ? 'brightness-50' : 'brightness-40 grayscale'
+                }`}
+                variants={slideVariants}
+                custom={isBottomToTop ? 1 : -1}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  y: { type: "spring", stiffness: 50, damping: 20 },
+                  opacity: { duration: 1 },
+                  duration:2
+                }}
+              />
+            </AnimatePresence>
           </div>
         )}
       </div>
@@ -152,22 +224,75 @@ const CaseStudyCard = ({ title, description, images, isWide,index }) => {
   );
 };
 const CaseStudies = () => {
-  return (
-<div className="sticky top-0 z-0 h-screen overflow-hidden flex items-center justify-center ">
-<div className="h-screen w-full overflow-hidden">
-    <div className="bg-[#151515] h-screen w-full p-12 rounded-t-[50px] flex items-center justify-center">
-      <div className="max-w-7xl w-full mx-12">  
-    <div className="space-y-8 pb-16">
+  const [isMobile, setIsMobile] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  const goToNextSlide = useCallback(() => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % caseStudiesData.length);
+  }, []);
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+  useEffect(() => {
+    if (isMobile) {
+      const timer = setInterval(goToNextSlide, 3000);
+      return () => clearInterval(timer);
+    }
+  }, [isMobile, goToNextSlide]);
+  if (isMobile) {
+    return (
+    <>
+      <div className="bg-[#151515] min-h-screen relative overflow-hidden pt-12  mb-8">
+        <div className="relative h-[calc(100vh-140px)] p-10 mx-10 rounded-3xl overflow-hidden">
+          <AnimatePresence initial={false} mode="wait">
+            <CaseStudyCard 
+              key={currentSlide} 
+              {...caseStudiesData[currentSlide]} 
+              isMobile={isMobile} 
+              currentSlide={currentSlide}
+              goToSlide={goToSlide}
+            />
+          </AnimatePresence>
+        </div>
+        <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4 z-30">
+          <button 
+            onClick={() => goToSlide((currentSlide - 1 + caseStudiesData.length) % caseStudiesData.length)} 
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="Previous slide"
+          >
+          </button>
+          <button 
+            onClick={() => goToSlide((currentSlide + 1) % caseStudiesData.length)} 
+            className="text-white/70 hover:text-white transition-colors"
+            aria-label="Next slide"
+          >
+          </button>
+        </div>
+      </div>
+      </>
+    );
+  }
+return (
+<div className="sticky top-[-40%] z-0 min-h-screen overflow flex items-center justify-center ">
+<div className="min-h-screen w-full overflow">
+    <div className="bg-[#151515] min-h-screen w-full p-12 rounded-t-[50px] flex items-center justify-center">
+      <div className="max-w-7xl w-full m-12">  
+    <div className="space-y-3 pb-14">
         {/* First Row */}
-        
-        <div className="flex flex-col md:flex-row gap-8  mb-8 justify-center">
+        <div className="flex flex-col md:flex-row gap-3 justify-center">
           {caseStudiesData.slice(0, 3).map((study, index) => (
             <CaseStudyCard key={index} {...study} isWide={index === 0} index={index} />
           ))}
         </div>
-        
         {/* Second Row */}
-        <div className="flex flex-col md:flex-row gap-8 justify-center">
+        <div className="flex flex-col md:flex-row gap-3 justify-center">
           {caseStudiesData.slice(3, 6).map((study, index) => (
             <CaseStudyCard key={index} {...study} isWide={index === 2}index={index + 3}  />
           ))}

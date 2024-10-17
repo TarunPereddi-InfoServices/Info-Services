@@ -99,9 +99,9 @@ body {
 }
 .heading_font {
   font-family: "Raleway", sans-serif;
-  font-optical-sizing: auto;
+  /* font-optical-sizing: auto;
   font-weight: 400;
-  font-style: normal;
+  font-style: normal; */
 }
 /* Border to the boxes in testimonial section */
 .gradient-border {
@@ -123,6 +123,7 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
+} 
 }
 
 /* .card{
