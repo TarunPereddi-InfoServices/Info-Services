@@ -33,7 +33,7 @@ function LeadershipTeam() {
   )
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#121212] text-white p-4 sm:p-8 md:p-16 lg:p-20">
+    <div className="min-h-screen flex items-center justify-center bg-[#121212] text-white p-4 sm:p-8 md:p-16 lg:p-20 sticky top-0 rounded-t-[50px]">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-center mb-4">Leadership Team</h1>
         <p className="text-center text-gray-400 mb-8 sm:mb-12 lg:mb-16 max-w-2xl mx-auto text-sm sm:text-base">
