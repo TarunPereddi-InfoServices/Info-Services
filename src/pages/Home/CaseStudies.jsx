@@ -68,17 +68,28 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    }, 4000);
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, [images.length,isWide]);
+
+  // Keep the other slides (not wide) on their own timing
+  useEffect(() => {
+    if (!isWide) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 4000); // This timing is for the rest of the slides
+      return () => clearInterval(interval);
+    }
+  }, [images.length, isWide]);
+
   if (isMobile) {
     return (
       <motion.div
         className="absolute top-0 left-0 w-full h-full"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0 , y: '100%' }}
+        animate={{ opacity: 1 , y:0 }}
+        exit={{ opacity: 0 , y: '-100%'}}
+        transition={{ duration: 1.5 }}
       >
         <div className="h-full flex flex-col">
           <div className="relative flex-1 bg-[#151515]">
