@@ -14,9 +14,9 @@ export default function Component() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="flex-grow flex flex-col justify-center"> {/* Added flex and justify-center */}
+        <div className="flex-grow p-6 flex flex-col justify-center"> {/* Added flex and justify-center */}
           <div className="text-7xl text-purple-300 opacity-50 mb-4"><img src={Quotation} className="h-6 lg:h-full" alt="Quotation" /></div>
-          <p className="text-lg mb-6">
+          <p className="text-lg mb-6 lg:w-3/4">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
           <div>
