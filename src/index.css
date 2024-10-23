@@ -202,23 +202,32 @@ body {
   color: #000;
   border-radius: 8px;
   margin-top: 20px;
+  p{
+    text-wrap: wrap;
+    text-align: center;
+    margin: 0 75px;
+    font-size: 14px;
+  }
 }
 
+/* //info: caseStudy section */
 .caseStudy {
   display: flex;
   justify-content: center;
   margin: 0 20px;
 }
 
+/* //info: caseStudyCard css */
 .caseStudyCard {
   position: relative;
   height: 406px;
   width: 300px;
   border-radius: 10px;
   margin: 10px 20px;
-  transition: all 500ms ease;
+  transition: all 500ms ease; /* //info: for smooth transaction */
 }
 
+/* //info: caseStudyCard Hover code */
 .caseStudyCard:hover {
   width: 650px;
   .caseStudyContent {
@@ -283,12 +292,14 @@ body {
   margin-top: 15px;
 }
 
+/* //info: caseStudycard common background image properties */
 .bgImg {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
+/* //info: caseStudycard images */
 .bgImg1 {
   background-image: url(/src/assets/images/CaseStudies/caseStudy1.png);
 }
@@ -314,11 +325,19 @@ body {
 
 .btn {
   margin: 10px 20px;
-  border: 0.5px solid black;
+  /* border: 0.5px solid black; */
   padding: 10px;
   border-radius: 8px;
 }
+.btn-shade {
+  border: none;
+  outline: none;
+  background: linear-gradient(to right, #fff, #F1F1F1);
+}
 
+.bg-class {
+  background: linear-gradient(270deg, #405E9E 0%, #8F23AE 49%, #684EB2 100%);
+}
 .techno-expertise-container {
   top: -40px;
   position: relative;
@@ -347,7 +366,7 @@ body {
 .w-50 {
   width: 50%;
 }
-
+/* //info: light and dark mode css */
 .mode-container {
   border: 1px solid;
   border-radius: 25px;
@@ -392,6 +411,7 @@ body {
   height: 280px;
 }
 
+/* //info: whychooseus section icons card switch */
 .IconInfocard {
   display: flex;
   justify-content: center;
