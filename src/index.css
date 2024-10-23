@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   text-wrap: balance;
 }
 
 body {
-  font-family: 'Manrope';
+  font-family: "Manrope";
   /* background: linear-gradient(270deg, #405E9E 0%, #8F23AE 49%, #684EB2 100%); */
   overflow-x: hidden;
   background: #000;
@@ -23,7 +23,12 @@ body {
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to top, #405e9e93 0%, #8F23AE93 49%, #694eb293 100%);
+  background: linear-gradient(
+    to top,
+    #405e9e93 0%,
+    #8f23ae93 49%,
+    #694eb293 100%
+  );
   border-radius: 10px;
 }
 @layer base {
@@ -89,16 +94,16 @@ body {
     @apply bg-background text-foreground;
   }
 }
-.no-scrollbar{
+.no-scrollbar {
   scrollbar-width: none;
 }
-.heading_font{
+.heading_font {
   font-family: "Raleway", sans-serif;
   /* font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal; */
 }
-  /* Border to the boxes in testimonial section */
+/* Border to the boxes in testimonial section */
 .gradient-border {
   position: relative;
 }
@@ -108,12 +113,347 @@ body {
   inset: 0;
   border-radius: 16px;
   padding: 2px;
-  background: linear-gradient(to right, #405e9e93 0%, #8F23AE93 49%, #694eb293 100%);
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
+  background: linear-gradient(
+    to right,
+    #405e9e93 0%,
+    #8f23ae93 49%,
+    #694eb293 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
 } 
 
+/* .card{
+  width:100vw;
+  height:100vh;
+  display:flex;
+  align-items:centre;
+  justify-content:centre;
+  position:sticky;
+  top:0;
+} */
+
+
+/* Data Engineering CSS Start */
+
+.font-gray {
+  color: #6b6b6b;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  width: 1320px;
+  height: 889px;
+  align-items: center;
+}
+
+.bgImage {
+  z-index: -1;
+}
+
+.image-container > div {
+  width: 89%;
+}
+
+.imageVideo {
+  background-image: url(/src/assets/images/CaseStudies/image7/ef866d61b87135be7b704b5b856b81b5.jpeg);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 780px 551px;
+  transform-origin: right bottom;
+  border: 1px solid #000;
+}
+
+.offer-bg-height {
+  height: 830px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.font-dark {
+  color: #131a1b;
+}
+
+.offer-description {
+  width: 378px;
+  font-size: 14px;
+  line-height: 24.59px;
+}
+
+.bg-p {
+  background: #405e9e;
+}
+
+.offer-container {
+  display: flex;
+  justify-content: center;
+}
+
+.offer-content {
+  width: 1130px;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  align-items: center;
+  color: #000;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.caseStudy {
+  display: flex;
+  justify-content: center;
+  margin: 0 20px;
+}
+
+.caseStudyCard {
+  position: relative;
+  height: 406px;
+  width: 300px;
+  border-radius: 10px;
+  margin: 10px 20px;
+  transition: all 500ms ease;
+}
+
+.caseStudyCard:hover {
+  width: 650px;
+  .caseStudyContent {
+    position: absolute;
+    bottom: 120px;
+    left: 27px;
+  }
+  .caseStudyBtn { 
+    display: none;
+  }
+  .caseStudyPara {
+    width: 100%;
+  }
+  
+  .caseStudydescription {
+    display: block;
+    width: 80%;
+    font-size: 15px;
+  }
+  
+  .caseStudyReadMoreBtn {
+    display: block;
+  }
+/*   
+  .bgImg {
+    backdrop-filter: blur(10px);
+  } */
+}
+
+.caseStudyContent {
+  position: absolute;
+  bottom: 39px;
+  left: 27px;
+}
+
+.caseStudyBtn {
+  font-size: 16px;
+  background: linear-gradient(270deg, #405E9E 0%, #8F23AE 49%, #684EB2 100%);
+  width: 114px;
+  height: 30px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.caseStudyPara {
+  font-size: 20px;
+  margin-top: 20px;
+  min-height: 52px;
+  width: 172px;
+}
+
+.caseStudydescription {
+  display: none;
+}
+
+.caseStudyReadMoreBtn {
+  display: none;
+  width: 170px;
+  height: 40px;
+  margin-top: 15px;
+}
+
+.bgImg {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.bgImg1 {
+  background-image: url(/src/assets/images/CaseStudies/caseStudy1.png);
+}
+
+.bgImg2 {
+  background-image: url(/src/assets/images/CaseStudies/caseStudy2.jpg);
+}
+.bgImg3 {
+  background-image: url(/src/assets/images/CaseStudies/caseStudy3.jpg);
+}
+.bgImg4 {
+  background-image: url(/src/assets/images/CaseStudies/caseStudy4.jpg);
+}
+
+.btn-container {
+  margin-top: 80px;
+}
+
+.brTLR-40 {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.btn {
+  margin: 10px 20px;
+  border: 0.5px solid black;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.techno-expertise-container {
+  top: -40px;
+  position: relative;
+  height: 750px;
+  background: linear-gradient(270deg, #405E9E 0%, #8F23AE 49%, #684EB2 100%);
+
+  .techno-description {
+    width: 478px;
+    font-size: 14px;
+    line-height: 24.59px;
+    margin-bottom: 20px;
+  }
+  .tech-stack-img {
+    width: 1200px;
+    height: 300px;
+  }
+}
+
+.choose-us-container {
+  background: black;
+  top: -100px;
+  position: relative;
+  border-radius: 40px;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.mode-container {
+  border: 1px solid;
+  border-radius: 25px;
+  padding: 9px 2px;
+  background-color: transparent;
+  width: 156px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.mode {
+    padding: 10px 20px;
+}
+
+.mode-active {
+    border-radius: 25px;
+    background: linear-gradient(270deg, #405E9E 0%, #8F23AE 49%, #684EB2 100%);
+}
+
+.videoPlayContainer {
+  position: relative;
+}
+
+.playCircle {
+  position: absolute;
+  top: 170px;
+  left: 368px;
+  font-size: 60px;
+}
+
+.video {
+  border-radius: 20px;
+  width: 680px;
+  height: 386px;
+}
+
+.videoInfo {
+  align-self: center;
+  line-height: 40px;
+  font-size: 20px;
+  width: 422px;
+  height: 280px;
+}
+
+.IconInfocard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  height: 220px;
+  border: 1.07px solid #FFFFFF17;
+  border-radius: 12px;
+  margin: 10px;
+  background: #8989890D;
+  transition: all 0.5s ease;
+}
+
+.front {
+  width: 218px;
+  height: 218px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.back {
+  display: none;
+  width: 218px;
+  height: 218px;
+  justify-content: center;
+  align-items: center;
+  background-color: #405E9E;
+  border-radius: 12px;
+  P {
+    font-size: 12px;
+    margin: 10px;
+    text-align: center;
+  }
+}
+
+.IconInfocard:hover {
+  .front {
+    display: none;
+  }
+  .back {
+    display: flex;
+  }
+}
+
+.formInput {
+  display: block;
+  color: #A5A5A5;
+  margin: 40px 35px;
+  padding-bottom: 15px;
+  border: 0;
+  outline: 0;
+  border-bottom: 2px solid white;
+  width: 350px;
+  background-color: transparent;
+  height: 43px;
+}
+
+.formButton {
+  margin: 40px 35px;
+}
+
+/* Data Engineering CSS End */
