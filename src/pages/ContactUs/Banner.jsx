@@ -33,8 +33,8 @@ const cities = [
     address: "789 Tech Avenue, Austin, TX 78701", 
     phone: "+1 (555) 987-6543", 
     image: Austin, 
-    x: 20, 
-    y: 42,
+    x: 5, 
+    y: 52,
     width: 400,
     height: 400
   },
@@ -45,8 +45,8 @@ const cities = [
     address: "456 Peachtree Street, Atlanta, GA 30308", 
     phone: "+1 (555) 456-7890", 
     image: Atlanta, 
-    x: 23, 
-    y: 41,
+    x: 10, 
+    y: 50,
     width: 250,
     height: 250
   },

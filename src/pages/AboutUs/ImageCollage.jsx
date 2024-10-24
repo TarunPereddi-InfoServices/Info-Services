@@ -20,13 +20,13 @@ function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null)
 
   return (
-    <div className="bg-[#151515] text-white min-h-screen p-4 sm:p-6 md:p-8 flex flex-col items-center justify-start">
+    <div className="bg-[#151515] relative rounded-t-[50px] text-white min-h-screen p-4 sm:p-6 md:p-8 flex flex-col items-center justify-start">
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-extralight text-center mb-2">Gallery</h1>
       <p className="text-center mb-8 text-xs sm:text-sm md:text-base font-extralight max-w-2xl">
         Illuminating instances of achievement illuminating instances of achievement.
       </p>
       <div className="w-full max-w-md sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-2 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-1 sm:gap-1">
           {galleryImages.map((img, index) => (
             <div key={index} className={`${img.className} overflow-hidden`}>
               <img 

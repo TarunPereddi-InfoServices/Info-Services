@@ -41,7 +41,7 @@ export default function Component() {
 function InfoPanel({ imageUrl, title, description }) {
   return (
     <div className="group relative rounded-3xl p-[1px] bg-transparent hover:bg-gradient-to-r from-[#732FFC] via-[#AE3AD9] to-[#FF4CB6]">
-      <div className="relative flex flex-col items-center justify-center text-center p-6 sm:p-8 bg-[#151515] rounded-3xl z-10 h-full lg:h-[60vh] transition-all duration-300 group-hover:bg-black opacity-100">
+      <div className="relative flex flex-col items-center justify-center text-center p-6 sm:p-8 bg-[#151515] rounded-3xl z-10 h-full lg:h-[45vh] transition-all duration-300 group-hover:bg-black opacity-100">
         <img src={imageUrl} alt="" className="mb-4 w-12 h-12" />
         <h2 className="text-xl sm:text-2xl font-light mb-4">{title}</h2>
         <p className="text-gray-400 text-sm sm:text-base">{description}</p>
