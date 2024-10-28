@@ -87,7 +87,7 @@ const Capabilities = () => {
   const [activeCapability, setActiveCapability] = useState(null);
 
   return (
-    <div className="sticky top-0 z-0 h-screen overflow-hidden">
+    <div className="sticky top-0 z-0 min-h-screen overflow-hidden">
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 sm:p-8 overflow-hidden rounded-t-[50px]">
       <div className="w-full max-w-7xl">
         <h1 className="text-4xl sm:text-6xl font-light bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text mb-8 sm:mb-12">

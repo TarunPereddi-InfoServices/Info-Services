@@ -261,8 +261,18 @@ const CaseStudies = () => {
     return (
     <>
       <div className="bg-[#151515] min-h-screen relative overflow-hidden pt-12  mb-8">
-        <div className="relative h-[calc(100vh-140px)] p-10 mx-10 rounded-3xl overflow-hidden">
+        <div className="relative h-[calc(100vh-140px)] p-10 mx-10 rounded-3xl overflow-hidden ">
+        
           <AnimatePresence initial={false} mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -100 }}
+              transition={{ duration: 0.8 }}
+              className="absolute w-full h-full"
+            >
+
             <CaseStudyCard 
               key={currentSlide} 
               {...caseStudiesData[currentSlide]} 
@@ -270,9 +280,12 @@ const CaseStudies = () => {
               currentSlide={currentSlide}
               goToSlide={goToSlide}
             />
+            </motion.div>
           </AnimatePresence>
-        </div>
-        <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4 z-30">
+        
+      </div>
+      </div>
+          <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4 z-30">
           <button 
             onClick={() => goToSlide((currentSlide - 1 + caseStudiesData.length) % caseStudiesData.length)} 
             className="text-white/70 hover:text-white transition-colors"
@@ -285,8 +298,8 @@ const CaseStudies = () => {
             aria-label="Next slide"
           >
           </button>
-        </div>
-      </div>
+          </div>
+
       </>
     );
   }
