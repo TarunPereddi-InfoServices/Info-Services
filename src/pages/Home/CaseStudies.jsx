@@ -85,7 +85,7 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
   if (isMobile) {
     return (
       <motion.div
-        className="absolute top-0 left-0 w-full h-full"
+        className="absolute top-0 left-0 h-full"
         initial={{ opacity: 0 , y: '100%' }}
         animate={{ opacity: 1 , y:0 }}
         exit={{ opacity: 0 , y: '-100%'}}
@@ -122,6 +122,9 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
       </motion.div>
     );
   }
+
+
+
   // Determine if the animation should be bottom-to-top or top-to-bottom
   const isBottomToTop = index === 1 || index === 3; // 2nd and 4th cards
   const slideVariants = {

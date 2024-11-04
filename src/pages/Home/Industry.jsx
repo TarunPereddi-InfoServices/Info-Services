@@ -69,7 +69,7 @@ const IndustryCard = ({ image, title, description }) => {
       transition={{ duration: 0.6, ease: [0.25, 0.8, 0.5, 1] }}
     >
       <div
-        className="absolute inset-0 bg-cover bg-center z-0 transition-all duration-500"
+        className={`absolute inset-0 bg-cover bg-center z-0 transition-all duration-500 ${isHovered ? 'filter-none' : 'filter grayscale'}`}
         style={{ backgroundImage: `url(${image})` }}
       />
       <AnimatePresence initial={false}>
@@ -141,70 +141,80 @@ export default function Industry() {
 
   useEffect(() => {
     if (isMobile) {
-      const timer = setInterval(goToNextSlide, 2000)
+      const timer = setInterval(goToNextSlide, 5000)
       return () => clearInterval(timer)
     }
   }, [isMobile, goToNextSlide])
 
   if (isMobile) {
     return (
-      <div className="bg-[#151515] min-h-screen relative overflow-hidden">
-        <div className="pt-12 px-6 mb-8">
+      <div className=" sticky top-[-10%] z-0 min-h-screen overflow relative min-h-screen bg-[#151515] overflow-hidden rounded-t-[50px]">
+        <div className="pt-12 px-6">
           <h1 className="text-[32px] font-extralight text-white m-4">
             Industries
           </h1>
         </div>
-        <div className="relative h-[calc(50vh-140px)] px-10 mx-10 rounded-xl">
+        <div className="relative h-[calc(100vh-100px)] px-10 mx-10 mb-20">
           <AnimatePresence initial={false} mode="wait">
             <motion.div
               key={currentSlide}
-              className="absolute top-0 left-0 w-full h-full"
+              className="absolute inset-0 rounded-2xl overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 2 }}
             >
-              <div className="h-full flex flex-col">
-                <div className="relative flex-1 bg-[#151515]">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${industries[currentSlide].image})` }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-                  <div className="relative h-full flex flex-col justify-center items-center px-8 text-center min-h-[600px]">
-                    <h3 className="text-3xl font-light text-white mb-6">{industries[currentSlide].title}</h3>
+              <div className="relative h-full flex flex-col">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${industries[currentSlide].image})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                
+                {/* Content Container */}
+                <div className="relative h-full flex flex-col justify-between px-8 pt-6 pb-10">
+                  {/* Text Content */}
+                  <div className="flex-1 flex flex-col justify-center text-center mt-4">
+                    <h3 className="text-3xl font-light text-white mb-12">
+                      {industries[currentSlide].title}
+                    </h3>
                     <p className="text-white/90 text-sm leading-relaxed mb-8">
                       {industries[currentSlide].description}
                     </p>
-                    <button className="self-center border border-white text-white rounded-full px-8 py-2.5 text-sm">
+                  </div>
+                  
+                  {/* Bottom Controls Container */}
+                  <div className="flex flex-col items-center space-y-8">
+                    {/* View More Button */}
+                    <button className=" w-40 max-w-xs border border-white text-white rounded-full px-4 py-2.5 text-sm mb-20">
                       View More
                     </button>
+                    
+                    {/* Slide Indicators */}
+                    <div className="flex justify-center space-x-3 w-full">
+                      {industries.map((_, i) => (
+                        <button
+                          key={i}
+                          onClick={() => goToSlide(i)}
+                          className={`w-12 h-[2px] transition-all ${
+                            currentSlide === i ? 'bg-white' : 'bg-gray-600'
+                          }`}
+                          aria-label={`Go to slide ${i + 1}`}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </motion.div>
           </AnimatePresence>
-          <div className="absolute bottom-16 left-0 right-0 z-30">
-            <div className="flex justify-center items-center space-x-3 px-6">
-              {industries.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goToSlide(i)}
-                  className={`w-12 h-[2px] transition-all ${
-                    currentSlide === i ? 'bg-white' : 'bg-gray-600'
-                  }`}
-                  aria-label={`Go to slide ${i + 1}`}
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="sticky top-[-20%] z-0 min-h-screen overflow-hidden">
+    <div className="sticky top-[-20%] z-0 min-h-screen overflow-hidden mb-18">
       <div className="bg-[#151515] min-h-screen flex flex-col items-center justify-center p-8 rounded-t-[50px]">
         <h1 className="text-6xl font-extralight text-white mb-4 text-center">Industries</h1>
         <p className="text-base font-normal text-[#878787] mb-8 text-center">Crafting responsive designs for user engagement</p>

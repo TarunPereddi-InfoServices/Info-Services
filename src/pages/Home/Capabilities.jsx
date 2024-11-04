@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState} from 'react';
+import { motion} from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import image1 from '../../assets/images/Capabilities/cloudnative.svg';
 import image2 from '../../assets/images/Capabilities/coginitiveai.svg';
@@ -87,14 +87,13 @@ const Capabilities = () => {
   const [activeCapability, setActiveCapability] = useState(null);
 
   return (
-    <div className="sticky top-0 z-0 min-h-screen overflow-hidden">
+    <div className="sticky top-0 z-0 h-screen overflow-hidden">
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 sm:p-8 overflow-hidden rounded-t-[50px]">
       <div className="w-full max-w-7xl">
         <h1 className="text-4xl sm:text-6xl font-light bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text mb-8 sm:mb-12">
           Capabilities
         </h1>
       </div>
-      
       <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-16 w-full max-w-7xl">
         <div className="grid grid-cols-2 sm:grid-cols-2  lg:grid-cols-3 gap-6 w-full lg:w-3/5">
           {capabilities.map((capability) => (
@@ -116,16 +115,21 @@ const Capabilities = () => {
             transition={{ duration: 0.3 }}
             className="text-left"
           >
+
+        <div className="flex items-center space-x-4 mb-2">
+        <h3 className="text-lg text-gray-700">{activeCapability ? activeCapability.title : 'Capabilities'}</h3>
+        <div className="flex-grow border-t border-gray-700"></div>
+            </div>
+
             {activeCapability ? (
               <>
-                <h3 className="text-lg text-gray-700 mb-2">{activeCapability.title}</h3>
+                {/* <h3 className="text-lg text-gray-700 mb-2">{activeCapability.title}</h3> */}
                 <p className="text-2xl sm:text-4xl font-extralight text-gray-800 mb-6">
                   {activeCapability.description}
                 </p>
               </>
             ) : (
               <>
-                <h3 className="text-lg text-gray-700 mb-2">Capabilities</h3>
                 <p className="text-2xl sm:text-4xl font-extralight text-gray-800 mb-6">
                   Lorem ipsum dolor sit amet, consectetur{' '}
                   <span className="bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] text-transparent bg-clip-text">
@@ -150,5 +154,6 @@ const Capabilities = () => {
     </div>
   );
 };
+
 
 export default Capabilities;

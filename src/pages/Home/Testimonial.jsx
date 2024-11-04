@@ -103,10 +103,10 @@ const Testimonial = () => {
   }
 
   return (
-    <div className="bg-[#151515] relative  flex flex-col min-h-screen text-white px-6 py-12 ">
-      <div className="flex flex-col mb-12">
+    <div className=" sticky top-[-10%] z-0 min-h-screen overflow  bg-[#151515] relative  flex flex-col min-h-screen text-white px-6 py-12 rounded-t-[50px] ">
+      <div className="flex flex-col  mb-12 px-9">
         <motion.h2
-          className="text-5xl font-light leading-tight mb-4"
+          className="text-4xl font-light leading-tight mb-4  text-center "
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -114,7 +114,8 @@ const Testimonial = () => {
           Hear it from our Clients
         </motion.h2>
         <motion.p
-          className="text-base font-light"
+          className="text-base font-light "
+          style={{ maxWidth: "650px" }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
