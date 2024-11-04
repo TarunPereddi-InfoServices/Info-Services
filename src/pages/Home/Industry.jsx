@@ -44,7 +44,7 @@ const industries = [
     description: "Lorem ipsum dolor sit amet consectetur. Odio cursus tortor id lectus enim ultricies lectus amet. Id eu nunc non risus diam mi. Eu pharetra eu ornare pellentesque et ultrices ut tellus. Purus risus mauris aliquam turpis tristique et id pellentesque elementum. Non sagittis neque nibh mauris ut diam turpis habitant. Quis laoreet vitae id egestas mattis vel.",
   },
 ];
-const IndustryCard = ({ title, image, description,isMobile ,currentSlide, goToSlide }) => {
+const IndustryCard = ({ title, image, description,isMobile }) => {
   if (isMobile) {
     return (
       <motion.div
@@ -56,7 +56,7 @@ const IndustryCard = ({ title, image, description,isMobile ,currentSlide, goToSl
     >
       <div className="h-full flex flex-col">
         {/* Grey background at the top */}
-        <div className=" relative flex-1 bg-[#151515]" />
+        <div className="bg-[#151515] h-[25vh]" />
         {/* Main content container */}
         <div className="relative flex-1 bg-[#151515]">
           {/* Background image with gradient overlay */}
@@ -66,7 +66,7 @@ const IndustryCard = ({ title, image, description,isMobile ,currentSlide, goToSl
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
           {/* Content */}
-          <div className="relative h-full flex flex-col justify-center items-center px-8 text-center min-h-[600px]">
+          <div className="relative h-full flex flex-col justify-end pb-32 px-8">
             <h3 className="text-3xl font-light text-white mb-6">{title}</h3>
             <p className="text-white/90 text-sm leading-relaxed mb-8">
               {description}
@@ -74,21 +74,6 @@ const IndustryCard = ({ title, image, description,isMobile ,currentSlide, goToSl
             <button className="self-center border border-white text-white rounded-full px-8 py-2.5 text-sm">
               View More
             </button>
-
-            <div className="absolute bottom-16 left-0 right-0 z-30">
-              <div className="flex justify-center items-center space-x-3  px-6">
-                {industries.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => goToSlide(i)}
-                className={`w-12 h-[2px] transition-all ${
-                  currentSlide === i ? 'bg-white' : 'bg-gray-600'
-                }`}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
-          </div>
-        </div>
           </div>
         </div>
       </div>
@@ -158,22 +143,36 @@ const Industry = () => {
           }, [isMobile, goToNextSlide]);
           if (isMobile) {
             return (
+              <>
+              
               <div className="bg-[#151515] h-screen relative overflow-hidden">
               <div className="pt-12 px-6 mb-8">
-              <h1 className="text-[32px] font-extralight text-white mb-4">
+              <h1 className="text-[32px] font-extralight text-white">
                 Industries
                 </h1>
                 </div>
-                <div className="relative h-[calc(50vh-140px)] px-10">
+                <div className="relative h-[calc(50vh-140px)]">
                 <AnimatePresence initial={false} mode="wait">
                 <IndustryCard 
                   key={currentSlide} 
                   {...industries[currentSlide]} 
                   isMobile={isMobile} 
-                  currentSlide={currentSlide}
-                  goToSlide={goToSlide}
             />
           </AnimatePresence>
+        </div>
+              <div className="absolute bottom-16 left-0 right-0 z-30">
+              <div className="flex justify-center items-center space-x-3  px-6">
+                {industries.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goToSlide(i)}
+                className={`w-12 h-[2px] transition-all ${
+                  currentSlide === i ? 'bg-white' : 'bg-gray-600'
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
         <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4 z-30">
           <button 
@@ -189,12 +188,12 @@ const Industry = () => {
           >
           </button>
         </div>
-        </div>
+      </div>
+      </>
     );
           }
   return (
-<div className="sticky top-0 z-0 h-screen overflow-hidden">
-    <div className="bg-[#151515] min-h-screen flex flex-col items-center justify-center p-8 rounded-t-[50px]">
+    <div className="bg-[#151515] min-h-screen flex flex-col items-center justify-center p-8">
       <h1 className="text-6xl font-extralight text-white mb-4 text-center">Industries</h1>
       <p className="text-base font-normal text-[#878787] mb-8 text-center">Crafting responsive designs for user engagement</p>
       <div className="flex justify-center space-x-4 overflow-x-auto pb-4">
@@ -203,7 +202,6 @@ const Industry = () => {
         ))}
       </div>
     </div>
-</div>
   );
 };
 export default Industry;

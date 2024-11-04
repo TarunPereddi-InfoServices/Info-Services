@@ -58,8 +58,7 @@ const Testimonial = () => {
 
   if (!isMobile) {
     return (
-
-      <div className="flex relative justify-center min-h-screen bg-[#151515] text-white">
+      <div className="flex justify-center min-h-screen bg-[#151515] text-white">
         <div className="flex-1 min-h-screen p-10 space-y-20 scrollbar-hide pt-32 no-scrollbar">
           {testimonials.map((testimonial, index) => (
             <motion.div
@@ -98,12 +97,11 @@ const Testimonial = () => {
           </div>
         </div>
       </div>
-     
     );
   }
 
   return (
-    <div className="bg-[#151515] relative  flex flex-col min-h-screen text-white px-6 py-12 ">
+    <div className="flex flex-col min-h-screen bg-[#151515] text-white px-6 py-12">
       <div className="flex flex-col mb-12">
         <motion.h2
           className="text-5xl font-light leading-tight mb-4"
@@ -130,7 +128,7 @@ const Testimonial = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5 }}
-            className="bg-[#1C1C1C] rounded-3xl p-8 mb-12 lg:border-none border border-white"
+            className="bg-[#1C1C1C] rounded-3xl p-8 mb-12"
           >
             <div className="flex flex-col mb-6">
               <img 
@@ -146,20 +144,19 @@ const Testimonial = () => {
         <div className="flex justify-center space-x-4">
           <button
             onClick={prevSlide}
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white lg:border-none"
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white lg:border-none"
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
         </div>
       </div>
     </div>
-
   );
 };
 
