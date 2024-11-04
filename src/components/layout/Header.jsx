@@ -64,17 +64,17 @@ export default function Header() {
   const whatWeDoContent = {
     Capabilities: [
       { name: 'Generative AI', description: 'Explore endless creativity with Generative AI: where innovation meets imagination.', link: '/generativeAI' },
-      { name: 'Cognitive AI', description: 'Think like a human, analyze like a machine: Get cognitive insights that matter' },
-      { name: 'Business Intelligence', description: 'Data insights, real-world results - Business intelligence drives your transformation' },
-      { name: 'XOps', description: "Don't let your development process hold you back - Let us help you embrace Xops" },
-      { name: 'Cloud Native', description: 'Always evolving, never standing still: Cloud-powered innovation' },
+      { name: 'Cognitive AI', description: 'Think like a human, analyze like a machine: Get cognitive insights that matter' , link: '/cognitiveAI' },
+      { name: 'Business Intelligence', description: 'Data insights, real-world results - Business intelligence drives your transformation' , link: '/bussinessIntelligance' },
+      { name: 'XOps', description: "Don't let your development process hold you back - Let us help you embrace Xops", link: '/xOps' },
+      { name: 'Cloud Native', description: 'Always evolving, never standing still: Cloud-powered innovation' , link: '/cloudNative' },
       // info: Link property added to be used for naviagtion
       { name: 'Data Analytics & Engineering', description: 'Our data engineering and analytics services pave the way for actionable insights and strategic decision-making.', link: '/dataEngineering' },
-      { name: 'Salesforce', description: "Don't just manage your business, transform it with Salesforce" },
-      { name: 'Quality Engineering', description: 'From startups to global brands - we elevate quality for businesses of all sizes' },
-      { name: 'Mobility Services', description: 'App development made easy. We handle the tech, you focus on your vision' },
-      { name: 'Technical Writing', description: 'Unlock user understanding with expert documentation.' },
-      { name: 'SAP', description: 'Experience a seamless transition to SAP® S/4HANA with our expertly managed services!' },
+      { name: 'Salesforce', description: "Don't just manage your business, transform it with Salesforce" , link: '/salesforce' },
+      { name: 'Quality Engineering', description: 'From startups to global brands - we elevate quality for businesses of all sizes' , link: '/qualityEngineering'},
+      { name: 'Mobility Services', description: 'App development made easy. We handle the tech, you focus on your vision' ,link: '/mobilityServices'},
+      { name: 'Technical Writing', description: 'Unlock user understanding with expert documentation.' , link: '/technicalWriting'},
+      { name: 'SAP', description: 'Experience a seamless transition to SAP® S/4HANA with our expertly managed services!' , link: '/SAP' },
     ],
     Products: [
       { name: 'XOps', description: "Don't let your development process hold you back - Let us help you embrace Xops" },
@@ -101,6 +101,18 @@ export default function Header() {
       // info: for Mobile view navigation
       { title: 'DataEngineering', link: '/dataEngineering' },
       { title: 'GenerativeAI', link: '/generativeAI' },
+      { title: 'CognitiveAI', link: '/cognitiveAI' },
+      { title: 'BussinessIntelligance', link: '/bussinessIntelligance' },
+      { title: 'XOps', link: '/xOps' },
+      { title: 'CloudNative', link: '/cloudNative' },
+      { title: 'Salesforce', link: '/salesforce' },
+      { title: 'QualityEngineering', link: '/qualityEngineering' },
+      { title: 'MobilityServices', link: '/mobilityServices' },
+      { title: 'TechnicalWriting', link: '/technicalWriting' },
+      { title: 'SAP', link: '/sAP' },
+
+
+
     ],
     whatWeDo: Object.keys(whatWeDoContent).map(category => ({ title: category, submenu: category })),
     insights: [
