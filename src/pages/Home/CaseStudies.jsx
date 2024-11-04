@@ -84,46 +84,54 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
 
   if (isMobile) {
     return (
-      <motion.div
-        className="absolute top-0 left-0 h-full"
-        initial={{ opacity: 0 , y: '100%' }}
-        animate={{ opacity: 1 , y:0 }}
-        exit={{ opacity: 0 , y: '-100%'}}
-        transition={{ duration: 1.5 }}
-      >
-        <div className="h-full flex flex-col">
-          <div className="relative flex-1 bg-[#151515]">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+      <div className="relative w-full h-[500px] rounded-3xl overflow-hidden bg-[#151515]">
+      {/* Fixed container with changing images */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentImageIndex}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Fixed content overlay */}
+      <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
+        <h3 className="text-sm underline underline-offset-1 font-normal mb-2 text-[#DFDFDF]">
+          Case Studies
+        </h3>
+        <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text">
+          {title}
+        </h2>
+        <p className="text-white/90 text-sm leading-relaxed mb-8">
+          {description}
+        </p>
+        
+        {/* Navigation dots */}
+        <div className="flex justify-center space-x-3 mt-4">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => goToSlide(i)}
+              className={`w-12 h-[2px] transition-all ${
+                currentSlide === i ? 'bg-white' : 'bg-gray-600'
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-            <div className="relative h-full flex flex-col justify-center  px-6 py-12 text-left opacity-100 backdrop-blur-[1px] ">
-              <h3 className="text-s underline underline-offset-1 font-normal mb-2 text-[#DFDFDF] ">Case Studies</h3>
-              <h2 className="text-2xl font-sans font-bold mb-2 bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text">{title}</h2>
-              <p className="text-white/90 text-sm leading-relaxed mb-8">{description}</p>
-            </div>
-          </div>
+          ))}
         </div>
-        <div className="absolute bottom-16 left-0 right-0 z-30">
-                <div className="flex justify-center items-center space-x-3 px-6">
-                  {caseStudiesData.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => goToSlide(i)}
-                      className={`w-12 h-[2px] transition-all ${
-                        currentSlide === i ? 'bg-white' : 'bg-gray-600'
-                      }`}
-                      aria-label={`Go to slide ${i + 1}`}
-                    />
-                  ))}
-                </div>
-              </div>
-      </motion.div>
-    );
-  }
-
-
+      </div>
+    </div>
+  );
+};
 
   // Determine if the animation should be bottom-to-top or top-to-bottom
   const isBottomToTop = index === 1 || index === 3; // 2nd and 4th cards
@@ -173,30 +181,6 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
         ) : (
           // Small cards use directional sliding animation
           <div className="relative h-full">
-            {/* {images.map((img, imgIndex) => (
-              <motion.img
-                key={imgIndex}
-                src={img}
-                alt={title}
-                className={`absolute w-full h-full object-cover transition-all duration-500 ease-in-out ${
-                  isHovered ? 'brightness-50' : 'brightness-40 grayscale'
-                }`}
-                style={{
-                  top: isBottomToTop 
-                    ? `${imgIndex * 100}%` 
-                    : `-${(images.length - 1 - imgIndex) * 100}%`,
-                }}
-                animate={{
-                  y: isBottomToTop
-                    ? `-${currentImageIndex * 100}%`
-                    : `${currentImageIndex * 100}%`,
-                }}
-                transition={{
-                  duration: 1.5,
-                  ease: "easeInOut"
-                }}
-              />
-            ))} */}
             <AnimatePresence initial={false} custom={isBottomToTop ? 1 : -1}>
               <motion.img
                 key={currentImageIndex}
@@ -240,6 +224,8 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
 const CaseStudies = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -256,10 +242,12 @@ const CaseStudies = () => {
   };
   useEffect(() => {
     if (isMobile) {
-      const timer = setInterval(goToNextSlide, 3000);
-      return () => clearInterval(timer);
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % caseStudiesData[currentSlide].images.length);
+      }, 3000);
+      return () => clearInterval(interval);
     }
-  }, [isMobile, goToNextSlide]);
+  }, [currentSlide, isMobile]);
   if (isMobile) {
     return (
     <>

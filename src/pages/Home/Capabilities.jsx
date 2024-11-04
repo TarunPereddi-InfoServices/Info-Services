@@ -87,15 +87,15 @@ const Capabilities = () => {
   const [activeCapability, setActiveCapability] = useState(null);
 
   return (
-    <div className="sticky top-0 z-0 h-screen overflow-hidden">
+    <div className="sticky top-0 z-0 min-h-screen overflow-hidden">
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-4 sm:p-8 overflow-hidden rounded-t-[50px]">
-      <div className="w-full max-w-7xl">
+      <div className="w-full max-w-7xl mt-8 sm:mt-0">
         <h1 className="text-4xl sm:text-6xl font-light bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text mb-8 sm:mb-12">
           Capabilities
         </h1>
       </div>
       <div className="flex flex-col lg:flex-row space-y-8 lg:space-y-0 lg:space-x-16 w-full max-w-7xl">
-        <div className="grid grid-cols-2 sm:grid-cols-2  lg:grid-cols-3 gap-6 w-full lg:w-3/5">
+        <div className="grid grid-cols-2 sm:grid-cols-2  lg:grid-cols-3 gap-4 sm:gap-6 w-full lg:w-3/5">
           {capabilities.map((capability) => (
             <CapabilityCard
               key={capability.title}
@@ -140,7 +140,7 @@ const Capabilities = () => {
                 <div className="flex justify-center">
                 <Button 
                   variant="outline" 
-                  className="text-xl sm:text-2xl font-extralight rounded-full border-zinc-800 text-zinc-600 px-8 py-4 sm:px-12 sm:py-7 hover:bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] hover:text-white transition-all duration-300 ease-in-out bg-[length:200%_100%] hover:bg-[100%_0] cursor-pointer mx-auto"
+                  className="text-xl sm:text-2xl font-extralight rounded-full border-zinc-800 text-zinc-600 px-8 py-4 sm:px-12 sm:py-7 mb-20 hover:bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] hover:text-white transition-all duration-300 ease-in-out bg-[length:200%_100%] hover:bg-[100%_0] cursor-pointer mx-auto"
                 >
                   View More Capabilities
                 </Button>
