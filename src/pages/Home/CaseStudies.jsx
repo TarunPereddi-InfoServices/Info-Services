@@ -85,53 +85,71 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
   if (isMobile) {
     return (
       <div className="relative w-full h-[500px] rounded-3xl overflow-hidden bg-[#151515]">
-      {/* Fixed container with changing images */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentImageIndex}
-          className="absolute inset-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Fixed content overlay */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
-        <h3 className="text-sm underline underline-offset-1 font-normal mb-2 text-[#DFDFDF]">
-          Case Studies
-        </h3>
-        <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text">
-          {title}
-        </h2>
-        <p className="text-white/90 text-sm leading-relaxed mb-8">
-          {description}
-        </p>
-        
-        {/* Navigation dots */}
-        <div className="flex justify-center space-x-3 mt-4">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goToSlide(i)}
-              className={`w-12 h-[2px] transition-all ${
-                currentSlide === i ? 'bg-white' : 'bg-gray-600'
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
-            />
+        {/* Images Container */}
+        <div className="absolute inset-0 overflow-hidden">
+          {images.map((image, idx) => (
+            <motion.div
+              key={idx}
+              className="absolute inset-0 w-full h-full"
+              initial={{ y: `${idx * 100}%` }}
+              animate={{ 
+                y: `${(idx - currentImageIndex) * 100}%`,
+                opacity: idx === currentImageIndex ? 1 : 0.3
+              }}
+              transition={{
+                y: { type: "tween", duration: 0.8, ease: "easeInOut" },
+                opacity: { duration: 0.5 }
+              }}
+            >
+              <img
+                src={image}
+                alt={`${title} ${idx + 1}`}
+                className="w-full h-full object-cover brightness-75 grayscale"
+              />
+            </motion.div>
           ))}
         </div>
+
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+
+        {/* Content */}
+        <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
+          <h3 className="text-sm underline underline-offset-1 font-normal mb-2 text-[#DFDFDF]">
+            Case Studies
+          </h3>
+          <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text">
+            {title}
+          </h2>
+          <p className="text-white/90 text-sm leading-relaxed mb-8">
+            {description}
+          </p>
+
+          {/* Progress Indicators */}
+          <div className="flex justify-center space-x-3 mt-4">
+            {images.map((_, i) => (
+              <div
+                key={i}
+                className="h-[2px] w-12 overflow-hidden bg-gray-600"
+              >
+                <motion.div
+                  className="h-full bg-white origin-left"
+                  initial={{ scaleX: 0 }}
+                  animate={{ 
+                    scaleX: currentImageIndex === i ? 1 : 0 
+                  }}
+                  transition={{ 
+                    duration: 4,
+                    ease: "linear"
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
 
   // Determine if the animation should be bottom-to-top or top-to-bottom
   const isBottomToTop = index === 1 || index === 3; // 2nd and 4th cards
@@ -221,6 +239,7 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
     </motion.div>
   );
 };
+
 const CaseStudies = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -234,63 +253,68 @@ const CaseStudies = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
   const goToNextSlide = useCallback(() => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % caseStudiesData.length);
   }, []);
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-  };
+
+  const goToPrevSlide = useCallback(() => {
+    setCurrentSlide((prevSlide) => 
+      prevSlide === 0 ? caseStudiesData.length - 1 : prevSlide - 1
+    );
+  }, []);
+
+
   useEffect(() => {
     if (isMobile) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % caseStudiesData[currentSlide].images.length);
-      }, 3000);
-      return () => clearInterval(interval);
+      const imageInterval = setInterval(() => {
+        setCurrentImageIndex((prev) => {
+          const nextIndex = (prev + 1) % caseStudiesData[currentSlide].images.length;
+          // If we've shown all images in current slide
+          if (nextIndex === 0) {
+            // Schedule next slide transition
+            setTimeout(() => {
+              setCurrentSlide((prevSlide) => (prevSlide + 1) % caseStudiesData.length);
+            }, 1000);
+          }
+          return nextIndex;
+        });
+      }, 4000);
+
+      return () => clearInterval(imageInterval);
     }
   }, [currentSlide, isMobile]);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+    setCurrentImageIndex(0);
+  };
+  
   if (isMobile) {
     return (
     <>
-      <div className="bg-[#151515] min-h-screen relative overflow-hidden pt-12  mb-8">
-        <div className="relative h-[calc(100vh-140px)] p-10 mx-10 rounded-3xl overflow-hidden ">
-        
-          <AnimatePresence initial={false} mode="wait">
-            <motion.div
-              key={currentSlide}
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -100 }}
-              transition={{ duration: 0.8 }}
-              className="absolute w-full h-full"
-            >
-
-            <CaseStudyCard 
-              key={currentSlide} 
-              {...caseStudiesData[currentSlide]} 
-              isMobile={isMobile} 
+      <div className="bg-[#151515] min-h-screen relative overflow-hidden pt-12 mb-8">
+      <div className="relative h-[calc(100vh-140px)] p-10 mx-10 rounded-[24px] overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0"
+          >
+            <CaseStudyCard
+              {...caseStudiesData[currentSlide]}
+              isMobile={isMobile}
+              currentImageIndex={currentImageIndex}
               currentSlide={currentSlide}
               goToSlide={goToSlide}
             />
-            </motion.div>
-          </AnimatePresence>
-        
+          </motion.div>
+        </AnimatePresence>
       </div>
-      </div>
-          <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4 z-30">
-          <button 
-            onClick={() => goToSlide((currentSlide - 1 + caseStudiesData.length) % caseStudiesData.length)} 
-            className="text-white/70 hover:text-white transition-colors"
-            aria-label="Previous slide"
-          >
-          </button>
-          <button 
-            onClick={() => goToSlide((currentSlide + 1) % caseStudiesData.length)} 
-            className="text-white/70 hover:text-white transition-colors"
-            aria-label="Next slide"
-          >
-          </button>
-          </div>
-
+    </div>
       </>
     );
   }
