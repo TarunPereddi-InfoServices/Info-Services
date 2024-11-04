@@ -1,0 +1,142 @@
+{
+    "whatWeDo": {
+      "Capabilities": [
+        {
+          "name": "Generative AI",
+          "description": "Explore endless creativity with Generative AI: where innovation meets imagination.",
+          "link": "/capability/generative-ai"
+        },
+        {
+          "name": "Cognitive AI",
+          "description": "Think like a human, analyze like a machine: Get cognitive insights that matter",
+          "link": "/capability/cognitive-ai"
+        },
+        {
+          "name": "Business Intelligence",
+          "description": "Data insights, real-world results - Business intelligence drives your transformation",
+          "link": "/capability/business-intelligence"
+        },
+        {
+          "name": "XOps",
+          "description": "Don't let your development process hold you back - Let us help you embrace Xops",
+          "link": "/capability/xops"
+        },
+        {
+          "name": "Cloud Native",
+          "description": "Always evolving, never standing still: Cloud-powered innovation",
+          "link": "/capability/cloud-native"
+        },
+        {
+          "name": "Data Analytics & Engineering",
+          "description": "Our data engineering and analytics services pave the way for actionable insights and strategic decision-making.",
+          "link": "/capability/data-analytics-engineering"
+        },
+        {
+          "name": "Salesforce",
+          "description": "Don't just manage your business, transform it with Salesforce",
+          "link": "/capability/salesforce"
+        },
+        {
+          "name": "Quality Engineering",
+          "description": "From startups to global brands - we elevate quality for businesses of all sizes",
+          "link": "/capability/quality-engineering"
+        },
+        {
+          "name": "Mobility Services",
+          "description": "App development made easy. We handle the tech, you focus on your vision",
+          "link": "/capability/mobility-services"
+        },
+        {
+          "name": "Technical Writing",
+          "description": "Unlock user understanding with expert documentation.",
+          "link": "/capability/technical-writing"
+        },
+        {
+          "name": "SAP",
+          "description": "Experience a seamless transition to SAP® S/4HANA with our expertly managed services!",
+          "link": "/capability/sap"
+        }
+      ],
+      "Products": [
+        {
+          "name": "iGuroo",
+          "description": "Navigating careers with personalized guidance and insights to empower individuals in making informed decisions for a successful professional journey.",
+          "link": "https://iguroo.com/"
+        },
+        {
+          "name": "Upskilly",
+          "description": "Empowering exam takers with mobile apps for adequate test preparation and success.",
+          "link": ""
+        },
+        {
+          "name": "Gentoolabs",
+          "description": "Empower organizations with customized e-learning solutions to enhance employee skills and drive professional growth.",
+          "link": "https://www.gentoolabs.com/"
+        }
+      ],
+      "Technologies": [
+        {
+          "name": "Salesforce",
+          "description": "Don't just manage your business, transform it with Salesforce",
+          "link": "/technology/salesforce"
+        },
+        {
+          "name": "Quality Engineering",
+          "description": "From startups to global brands - we elevate quality for businesses of all sizes",
+          "link": "/technology/quality-engineering"
+        },
+        {
+          "name": "Mobility Services",
+          "description": "App development made easy. We handle the tech, you focus on your vision",
+          "link": "/technology/mobility-services"
+        }
+      ],
+      "Industries": [
+        {
+          "name": "Technical Writing",
+          "description": "Unlock user understanding with expert documentation.",
+          "link": "/industry/technical-writing"
+        },
+        {
+          "name": "SAP",
+          "description": "Experience a seamless transition to SAP® S/4HANA with our expertly managed services!",
+          "link": "/industry/sap"
+        }
+      ]
+    },
+    "insights": [
+      {
+        "title": "Blogs",
+        "description": "Explore our blogs for a diverse selection of informative articles and engaging content.",
+        "link": "/insights/blogs"
+      },
+      {
+        "title": "Whitepapers",
+        "description": "Browse our whitepapers library for in-depth insights and expert analysis on key industry topics.",
+        "link": "/insights/whitepapers"
+      },
+      {
+        "title": "Case Studies",
+        "description": "Discover our case studies collection to explore real-world examples and success stories in action.",
+        "link": "/insights/case-studies"
+      }
+    ],
+    "mainMenu": [
+      {
+        "title": "Who We Are",
+        "link": "/about-us"
+      },
+      {
+        "title": "What We Do",
+        "submenu": "whatWeDo"
+      },
+      {
+        "title": "Insights",
+        "submenu": "insights"
+      },
+      {
+        "title": "Contact",
+        "link": "/contact"
+      }
+    ]
+  }

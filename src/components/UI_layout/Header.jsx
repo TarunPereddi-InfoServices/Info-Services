@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { Menu, X, ChevronLeft } from 'lucide-react'
 import Logo from '../../assets/images/SVG/InfoServices-Logo.svg'
+import navigationData from './navigationData.json';
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(true)
@@ -61,52 +62,17 @@ export default function Header() {
     setMobileActiveMenu('main')
   }, [location])
 
-  const whatWeDoContent = {
-    Capabilities: [
-      { name: 'Generative AI', description: 'Explore endless creativity with Generative AI: where innovation meets imagination.' },
-      { name: 'Cognitive AI', description: 'Think like a human, analyze like a machine: Get cognitive insights that matter' },
-      { name: 'Business Intelligence', description: 'Data insights, real-world results - Business intelligence drives your transformation' },
-      { name: 'XOps', description: "Don't let your development process hold you back - Let us help you embrace Xops" },
-      { name: 'Cloud Native', description: 'Always evolving, never standing still: Cloud-powered innovation' },
-      // info: Link property added to be used for naviagtion
-      { name: 'Data Analytics & Engineering', description: 'Our data engineering and analytics services pave the way for actionable insights and strategic decision-making.', link: '/dataEngineering' },
-      { name: 'Salesforce', description: "Don't just manage your business, transform it with Salesforce" },
-      { name: 'Quality Engineering', description: 'From startups to global brands - we elevate quality for businesses of all sizes' },
-      { name: 'Mobility Services', description: 'App development made easy. We handle the tech, you focus on your vision' },
-      { name: 'Technical Writing', description: 'Unlock user understanding with expert documentation.' },
-      { name: 'SAP', description: 'Experience a seamless transition to SAP® S/4HANA with our expertly managed services!' },
-    ],
-    Products: [
-      { name: 'XOps', description: "Don't let your development process hold you back - Let us help you embrace Xops" },
-      { name: 'Cloud Native', description: 'Always evolving, never standing still: Cloud-powered innovation' },
-      { name: 'Data Analytics & Engineering', description: 'Our data engineering and analytics services pave the way for actionable insights and strategic decision-making.' },
-    ],
-    Technologies: [
-      { name: 'Salesforce', description: "Don't just manage your business, transform it with Salesforce" },
-      { name: 'Quality Engineering', description: 'From startups to global brands - we elevate quality for businesses of all sizes' },
-      { name: 'Mobility Services', description: 'App development made easy. We handle the tech, you focus on your vision' },
-    ],
-    Industries: [
-      { name: 'Technical Writing', description: 'Unlock user understanding with expert documentation.' },
-      { name: 'SAP', description: 'Experience a seamless transition to SAP® S/4HANA with our expertly managed services!' },
-    ],
-  }
+  const whatWeDoContent = navigationData.whatWeDo;
+
+  const insightsContent = navigationData.insights;
 
   const mobileMenuItems = {
-    main: [
-      { title: 'Who We Are', link: '/about-us' },
-      { title: 'What We Do', submenu: 'whatWeDo' },
-      { title: 'Insights', submenu: 'insights' },
-      { title: 'Contact', link: '/contact' },
-      // info: for Mobile view navigation
-      { title: 'DataEngineering', link: '/dataEngineering' },
-    ],
-    whatWeDo: Object.keys(whatWeDoContent).map(category => ({ title: category, submenu: category })),
-    insights: [
-      { title: 'Blogs', description: 'Explore our blogs for a diverse selection of informative articles and engaging content.' },
-      { title: 'Whitepapers', description: 'Browse our whitepapers library for in-depth insights and expert analysis on key industry topics.' },
-      { title: 'Case Studies', description: 'Discover our case studies collection to explore real-world examples and success stories in action.' },
-    ],
+    main: [...navigationData.mainMenu],
+    whatWeDo: Object.keys(whatWeDoContent).map(category => ({ 
+      title: category, 
+      submenu: category 
+    })),
+    insights: insightsContent
   }
 
   const renderMobileMenuItem = (item) => (
@@ -212,21 +178,18 @@ export default function Header() {
       {activeDropdown === 'insights' && (
         <div className="fixed inset-0 top-[72px] bg-gradient-to-r from-[#684FB2] via-[#9023AE] to-[#405F9E] overflow-auto hidden md:block">
           <div className="container mx-auto px-4 py-8 grid grid-cols-3 gap-8">
-            <div className="p-4 rounded">
-              <h4 className="text-2xl font-semibold text-white mb-2">Blogs</h4>
-              <p className="text-lg text-gray-200">Explore our blogs for a diverse selection of informative articles and engaging content.</p>
-            </div>
-            <div className="p-4 rounded">
-              <h4 className="text-2xl font-semibold text-white mb-2">Whitepapers</h4>
-              <p className="text-lg text-gray-200">Browse our whitepapers library for in-depth insights and expert analysis on key industry topics.</p>
-            </div>
-            <div className="p-4 rounded">
-              <h4 className="text-2xl font-semibold text-white mb-2">Case Studies</h4>
-              <p className="text-lg text-gray-200">Discover our case studies collection to explore real-world examples and success stories in action.</p>
-            </div>
+            {insightsContent.map((item) => (
+              <Link to={item.link} key={item.title}>
+                <div className="p-4 rounded">
+                  <h4 className="text-2xl font-semibold text-white mb-2">{item.title}</h4>
+                  <p className="text-lg text-gray-200">{item.description}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       )}
+      
       {isMobileMenuOpen && (
         <div className="fixed inset-0 top-[72px] bg-gradient-to-r from-[#684FB2] via-[#9023AE] to-[#405F9E] overflow-auto md:hidden">
           <div className="container mx-auto px-4 py-6">

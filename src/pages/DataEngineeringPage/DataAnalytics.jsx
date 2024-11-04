@@ -13,7 +13,7 @@ export default function ContactForm() {
       <div className="flex-1 flex flex-col mt-[20vh] lg:mt-[25vh]">
         {/* // info: Each section Each component */}
         <DataAnalyticsBanner/>
-        <DarkLight />
+        {/* <DarkLight /> */}
         <DataAnalyticsCaseStudy />
         <DataAnalyticsVideoSection />
         <DataAnalyticsWhatWeOffer/>
