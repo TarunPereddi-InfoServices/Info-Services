@@ -137,6 +137,11 @@ body {
 
 
 /* Data Engineering CSS Start */
+.bannerDescription {
+  white-space: pre-line;
+  line-height: 40px;
+}
+
 
 .font-gray {
   color: #6b6b6b;
@@ -335,9 +340,6 @@ body {
   background: linear-gradient(to right, #fff, #F1F1F1);
 }
 
-.bg-class {
-  background: linear-gradient(270deg, #405E9E 0%, #8F23AE 49%, #684EB2 100%);
-}
 .techno-expertise-container {
   top: -40px;
   position: relative;

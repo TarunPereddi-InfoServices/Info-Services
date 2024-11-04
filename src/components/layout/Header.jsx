@@ -63,7 +63,7 @@ export default function Header() {
 
   const whatWeDoContent = {
     Capabilities: [
-      { name: 'Generative AI', description: 'Explore endless creativity with Generative AI: where innovation meets imagination.' },
+      { name: 'Generative AI', description: 'Explore endless creativity with Generative AI: where innovation meets imagination.', link: '/generativeAI' },
       { name: 'Cognitive AI', description: 'Think like a human, analyze like a machine: Get cognitive insights that matter' },
       { name: 'Business Intelligence', description: 'Data insights, real-world results - Business intelligence drives your transformation' },
       { name: 'XOps', description: "Don't let your development process hold you back - Let us help you embrace Xops" },
@@ -100,6 +100,7 @@ export default function Header() {
       { title: 'Contact', link: '/contact' },
       // info: for Mobile view navigation
       { title: 'DataEngineering', link: '/dataEngineering' },
+      { title: 'GenerativeAI', link: '/generativeAI' },
     ],
     whatWeDo: Object.keys(whatWeDoContent).map(category => ({ title: category, submenu: category })),
     insights: [

@@ -79,9 +79,9 @@ const CaseStudyCard = ({ title, description, images, isWide,index }) => {
     <motion.div 
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 2 }}
-      className={`relative overflow-hidden rounded-lg ${
+      className={`relative overflow-hidden rounded-lg mx-auto ${
         isWide ? 'w-full md:w-[66%]' : 'w-full md:w-[32%]'
-      } h-[400px] bg-[#151515]`}
+      } h-[50vh] bg-[#151515]`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -153,30 +153,22 @@ const CaseStudyCard = ({ title, description, images, isWide,index }) => {
 };
 const CaseStudies = () => {
   return (
-<div className="sticky top-0 z-0 h-screen overflow-hidden flex items-center justify-center ">
-<div className="h-screen w-full overflow-hidden">
-    <div className="bg-[#151515] h-screen w-full p-12 rounded-t-[50px] flex items-center justify-center">
-      <div className="max-w-7xl w-full mx-12">  
-    <div className="space-y-8 pb-16">
+    <div className="bg-[#151515] min-h-screen p-8">
+      <div className="max-w-7xl mx-auto">
         {/* First Row */}
-        
-        <div className="flex flex-col md:flex-row gap-8  mb-8 justify-center">
+        <div className="flex flex-col md:flex-row gap-4 mb-8">
           {caseStudiesData.slice(0, 3).map((study, index) => (
             <CaseStudyCard key={index} {...study} isWide={index === 0} index={index} />
           ))}
         </div>
-        
         {/* Second Row */}
-        <div className="flex flex-col md:flex-row gap-8 justify-center">
+        <div className="flex flex-col md:flex-row gap-4">
           {caseStudiesData.slice(3, 6).map((study, index) => (
             <CaseStudyCard key={index} {...study} isWide={index === 2}index={index + 3}  />
           ))}
         </div>
       </div>
     </div>
-  </div>
-</div>
-</div>
   );
 };
 export default CaseStudies;
