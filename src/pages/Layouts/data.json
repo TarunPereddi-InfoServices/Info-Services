@@ -1,0 +1,106 @@
+{
+    "CapabilityData": {
+      "generative-ai": {
+        "title": "Generative AI",
+        "description": "Explore endless creativity with Generative AI: where innovation meets imagination.",
+        "details": [
+          "State-of-the-art AI models",
+          "Custom solution development",
+          "Integration with existing systems"
+        ],
+        "benefits": [
+          "Increased productivity",
+          "Creative content generation",
+          "Automated workflows"
+        ]
+      },
+      "cognitive-ai": {
+        "title": "Cognitive AI",
+        "description": "Think like a human, analyze like a machine: Get cognitive insights that matter",
+        "details": [
+          "Natural Language Processing",
+          "Machine Learning Solutions",
+          "Cognitive Analytics"
+        ],
+        "benefits": [
+          "Enhanced decision making",
+          "Automated data analysis",
+          "Intelligent automation"
+        ]
+      },
+      "cloud-native": {
+        "title": "Cloud Native",
+        "description": "Always evolving, never standing still: Cloud-powered innovation",
+        "details": [
+          "Microservices Architecture",
+          "Containerization",
+          "Serverless Computing"
+        ],
+        "benefits": [
+          "Scalability",
+          "Cost optimization",
+          "Rapid deployment"
+        ]
+      }
+    },
+    "TechnologyData": {
+      "salesforce": {
+        "title": "Salesforce",
+        "description": "Don't just manage your business, transform it with Salesforce",
+        "features": [
+          "Custom Salesforce Development",
+          "Integration Services",
+          "Lightning Migration"
+        ],
+        "useCases": [
+          "CRM Optimization",
+          "Sales Process Automation",
+          "Customer Service Enhancement"
+        ]
+      },
+      "mobility-services": {
+        "title": "Mobility Services",
+        "description": "App development made easy. We handle the tech, you focus on your vision",
+        "features": [
+          "Native App Development",
+          "Cross-platform Solutions",
+          "Mobile Strategy Consulting"
+        ],
+        "useCases": [
+          "Enterprise Mobile Apps",
+          "Consumer Applications",
+          "Mobile Commerce"
+        ]
+      }
+    },
+    "IndustryData": {
+      "technical-writing": {
+        "title": "Technical Writing",
+        "description": "Unlock user understanding with expert documentation.",
+        "solutions": [
+          "API Documentation",
+          "User Guides",
+          "Technical Documentation"
+        ],
+        "impact": [
+          "Improved user adoption",
+          "Reduced support costs",
+          "Better product understanding"
+        ]
+      },
+      "sap": {
+        "title": "SAP",
+        "description": "Experience a seamless transition to SAP® S/4HANA with our expertly managed services!",
+        "solutions": [
+          "SAP Implementation",
+          "S/4HANA Migration",
+          "SAP Consulting"
+        ],
+        "impact": [
+          "Business process optimization",
+          "Digital transformation",
+          "Operational efficiency"
+        ]
+      }
+    }
+  }

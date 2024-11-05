@@ -4,7 +4,6 @@ import Layout from './components/UI_layout/Layout'
 import Home from './pages/Home/Home'
 import AboutUs from './pages/AboutUs/AboutUs'
 import Contact from './pages/ContactUs/Contact'
-import DataEngineering from './pages/DataEngineeringPage/DataEngineering'
 import CapabilityPage from './pages/Layouts/CapabilityPage'
 import TechnologyPage from './pages/Layouts/TechnologyPage'
 import IndustryPages from './pages/Layouts/IndustryPages'
@@ -18,7 +17,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/capability/data-analytics-engineering" element={<DataEngineering />} />
           <Route path="/capability/:capability" element={<CapabilityPage />} />
           <Route path="/technology/:technology" element={<TechnologyPage />} />
           <Route path="/industry/:industry" element={<IndustryPages />} />
