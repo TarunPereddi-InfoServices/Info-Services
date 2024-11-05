@@ -7,73 +7,55 @@ import AI from "../../assets/images/WhyChooseUs/AI.png";
 import security from "../../assets/images/WhyChooseUs/security.png";
 
 export const dataAnalyticsBannerProps = {
-    heading: "Unlock innovation with",
+    heading: "Connect, Simplify, Improve all your Ops.",
     topic: "XOps",
     description:
-        "Leverage the power of data to fuel your digital transformation journey. Our data engineering and analytics services pave \n the way for actionable insights and strategic decision-making.",
+        "Take the next step in IT management. Unify, manage, and automate different business applications and processes with end-to-end XOps integrations.",
 };
 export const dataAnalyticsCaseStudyProps = {
     caseStudies: [
         {
-            title: "Ad Streaming Analytics",
+            title: "Scalable & Secure Software-defined Vehicle Infrastructure for an Auto Manufacturer",
             description:
-                "They are the oldest and longest continuously operating subscription television service in the United States.",
+                "A transformation shift towards scalable, efficient, and data driven industrial IoT analytics, setting new standards for operational excellence and customer satisfaction in the industry.",
             bgClass: "bgImg bgImg1",
             buttonTitle: "Case Study",
             readMoreText: "Read More",
         },
-        {
-            title: "Content Knowledge Graph",
-            description:
-                "They are the oldest and longest continuously operating subscription television service in the United States.",
-            bgClass: "bgImg bgImg2",
-            buttonTitle: "Case Study",
-            readMoreText: "Read More",
-        },
-        {
-            title: "Implementation of test automation framework for streaming data",
-            description:
-                "They are the oldest and longest continuously operating subscription television service in the United States.",
-            bgClass: "bgImg bgImg3",
-            buttonTitle: "Case Study",
-            readMoreText: "Read More",
-        },
-        {
-            title:
-                "Large Scale Clickstream Data Lake and Analytics for M&E Company by Info Services",
-            description:
-                "They are the oldest and longest continuously operating subscription television service in the United States.",
-            bgClass: "bgImg bgImg4",
-            buttonTitle: "Case Study",
-            readMoreText: "Read More",
-        },
+        
     ],
 };
 export const dataAnalyticsVideoSectionProps = {
     VideoImg: VideoImg,
     videoInfo:
-        "Our Data Engineering and Analytics solutions encompass seamless data integration, streamlined processing pipelines, and advanced analytics capabilities. By leveraging these components, we empower organizations to extract actionable insights, optimize operations, and drive growth.",
+        "We’re with you every step of the way. Our personalized DevOps service helps you streamline, monitor, and manage the entire development process. From planning to deployment, our structured, tech-enabled guidance optimizes your workflows. Expand productivity throughout your enterprise with a standardized DevOps system. Maximize the efficiency of your data collection and analysis process. ",
 };
 
 export const dataAnalyticsWhatWeOfferProps = {
     offerItems: [
         {
-            title: "Streamlined Data Integration",
+            title: "DevSecOps",
             description:
-                "Easily integrate data from several sources with our solutions. We eliminate data silos and harmonize databases, applications, and platforms to provide you a single perspective of your data landscape. Our sophisticated integration frameworks enable real-time data interchange, enabling organizations to make educated decisions based on precise and complete information.",
-            key: "StreamlinedDataIntegration",
+                "Adding unfailing security throughout your processes. We prioritize a zero-threat and risk-free environment. With our DevSecOps service, we chalk out and execute an elaborate action plan to integrate security into your operations. Identify and fix any loopholes in your development cycle using our in-depth monitoring and analysis system.",
+            key: "DevSecOps",
         },
         {
-            title: "Advanced Data Processing",
+            title: "DataOps & CloudOps",
             description:
-                "Use advanced processing methods to quickly and accurately cleanse, transform, and analyze large amounts of data. Our powerful processing capabilities help organizations find hidden patterns and connections in complicated datasets that drive business results. We help companies maximize data value while operating efficiently and agilely with optimized data workflows and scalable processing infrastructures.",
-            key: "AdvancedDataProcessing",
+                "Maximize the efficiency of your data collection and analysis process. Our detailed DataOps service syncs your data sourcing and data analysis systems to enhance operational quality. We work closely to maintain actionable insight generation, improve software development, and boost overall efficiency. Embrace the power of intelligent automation in data delivery, analysis, and compliance processes. Optimize your cloud ecosystem. Our quality CloudOps service automated the management of your cloud infrastructure with ongoing support, monitoring, and tuning. With a highly pragmatic approach, our system ensures intelligent resource utilization and application performance. Focus on your core operations while we maintain the productivity and functionality of your cloud operations.",
+            key: "DataOps&CloudOps",
         },
         {
-            title: "Predictive Analytics",
+            title: "AIOps & MLOps",
             description:
-                "Predict future trends, behaviours, and consequences with precision and certainty using predictive analytics. We use historical data and powerful statistical methods to find patterns, predict changes, and limit risks with our predictive modelling algorithms. Predictive analytics helps organizations optimize resource allocation, manage risks, and seize opportunities, enabling sustainable growth and competitive advantage in dynamic marketplaces.",
-            key: "PredictiveAnalytics",
+                "Detect, investigate, and resolve issues in your IT environment. Our far-reaching AIOps services improve your system visibility to proactively monitor and remediate anomalies in the development process. The deep learning algorithms identify and eliminate problems from the roots, maximizing your operational efficiency and cost savings. Simplify your complex IT ecosystem with intelligent process management. Take your Machine Learning projects to the next level. Our MLOps service builds, deploys, and manages your Machine Learning models with unmatched accuracy and high reliability. We leverage robust, advanced tools to establish a scalable ML framework in your enterprise. Accelerate the development cycle automation of processes like data preparation, model training, and deployment.",
+            key: "AIOps&MLOps",
+        },
+        {
+            title: "BizOpss",
+            description:
+                "Drive profitability throughout your business cycle. Our BizOps service aligns your business operations with objectives with analytical strategy development and intelligent decision-making frameworks. The multi-faceted solution analyzes business processes, interconnects systems, and improves overall process functionality. Sync your technology functions with your business objectives to power greater revenue generation.",
+            key: "BizOps",
         },
     ],
     heading1: "What We Offer",
@@ -94,33 +76,33 @@ export const whyChooseUsProps = {
     cardData: [
         {
             image: group,
-            title: "Scalable infrastructure",
+            title: "Faster time-to-market",
             description:
-                "Flexibly adapt to changing data demands, ensuring optimal performance and resource allocation as your business grows.",
+                "Automate processes and facilitate inter-team collaboration. Our XOps services shorten development cycles, allowing you to release software much quicker.",
         },
         {
             image: fi_settings,
-            title: "Customized solutions",
+            title: "Increased productivity",
             description:
-                "Flexibly adapt to changing data demands, ensuring optimal performance and resource allocation as your business grows.",
+                "Simplify management, improve productivity. Linking all devices, applications, and IT processes, XOps allow a smarter way to maintain AI tasks and analytics.",
         },
         {
             image: security,
-            title: "Robust security measures",
+            title: "Greater agility",
             description:
-                "Flexibly adapt to changing data demands, ensuring optimal performance and resource allocation as your business grows.",
+                "Adapt to rapid market changes. With an end-to-end overview and inter-connected IT system, XOps increases responsiveness in delivery and deployment.",
         },
         {
             image: AI,
-            title: "Seamless integration",
+            title: "Smoother collaboration",
             description:
-                "Flexibly adapt to changing data demands, ensuring optimal performance and resource allocation as your business grows.",
+                "Improve communication and connectivity across teams. XOps eliminates silos with a collated ecosystem that elevates process efficiency.",
         },
         {
             image: fi_diverseData,
-            title: "Diverse data expertise",
+            title: "Stronger security",
             description:
-                "Flexibly adapt to changing data demands, ensuring optimal performance and resource allocation as your business grows.",
+                "Power greater functionality and security. XOps allows the integration of additional tools to ensure security in the software development process from the very start.",
         },
     ],
     heading1: "Why Choose Us",

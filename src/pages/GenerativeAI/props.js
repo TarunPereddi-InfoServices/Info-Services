@@ -7,17 +7,17 @@ import AI from "../../assets/images/WhyChooseUs/AI.png";
 import security from "../../assets/images/WhyChooseUs/security.png";
 
 export const dataAnalyticsBannerProps = {
-    heading: "Unlock innovation with",
+    heading: "Reinvent and Optimize Business Operations.",
     topic: "Generative AI",
     description:
-        "Leverage the power of data to fuel your digital transformation journey. Our data engineering and analytics services pave \n the way for actionable insights and strategic decision-making.",
+        "Accelerated innovation to unlock new opportunities and transform how your business functions.",
 };
 export const dataAnalyticsCaseStudyProps = {
     caseStudies: [
         {
-            title: "Ad Streaming Analytics",
+            title: "Generative AI on AWS",
             description:
-                "They are the oldest and longest continuously operating subscription television service in the United States.",
+                "Experience the transformative power of generative AI with INFO SERVICES, an Advanced AWS Partner. Move seamlessly from ideation to the implementation of cutting-edge AI solutions.",
             bgClass: "bgImg bgImg1",
             buttonTitle: "Case Study",
             readMoreText: "Read More",
@@ -30,55 +30,41 @@ export const dataAnalyticsCaseStudyProps = {
             buttonTitle: "Case Study",
             readMoreText: "Read More",
         },
-        {
-            title: "Implementation of test automation framework for streaming data",
-            description:
-                "They are the oldest and longest continuously operating subscription television service in the United States.",
-            bgClass: "bgImg bgImg3",
-            buttonTitle: "Case Study",
-            readMoreText: "Read More",
-        },
-        {
-            title:
-                "Large Scale Clickstream Data Lake and Analytics for M&E Company by Info Services",
-            description:
-                "They are the oldest and longest continuously operating subscription television service in the United States.",
-            bgClass: "bgImg bgImg4",
-            buttonTitle: "Case Study",
-            readMoreText: "Read More",
-        },
+        
     ],
 };
 export const dataAnalyticsVideoSectionProps = {
     VideoImg: VideoImg,
     videoInfo:
-        "Our Data Engineering and Analytics solutions encompass seamless data integration, streamlined processing pipelines, and advanced analytics capabilities. By leveraging these components, we empower organizations to extract actionable insights, optimize operations, and drive growth.",
+        "A more than one-size-fits-all approach is needed to address your specific business requirements. Our Customized Generative AI Model Development service offers you a unique advantage, explicitly tailored to your challenges and objectives. We develop these tailor-made Generative AI models using leading algorithms to design, develop, configure, and train them to meet your business goals. Custom models require custom data.",
 };
 
 export const dataAnalyticsWhatWeOfferProps = {
     offerItems: [
         {
-            title: "Streamlined Data Integration",
+            title: "Generative AI Consulting",
             description:
-                "Easily integrate data from several sources with our solutions. We eliminate data silos and harmonize databases, applications, and platforms to provide you a single perspective of your data landscape. Our sophisticated integration frameworks enable real-time data interchange, enabling organizations to make educated decisions based on precise and complete information.",
-            key: "StreamlinedDataIntegration",
+                "Are you intrigued by AI's promise but need help integrating it into your business landscape? Our Generative AI consulting service can help you navigate the complexities of generative AI, providing expert insights and tailored advice to align AI capabilities with your strategic objectives.",
+            key: "GenerativeAIConsulting",
         },
         {
-            title: "Advanced Data Processing",
+            title: "Detailed Evaluation and Roadmap Creation",
             description:
-                "Use advanced processing methods to quickly and accurately cleanse, transform, and analyze large amounts of data. Our powerful processing capabilities help organizations find hidden patterns and connections in complicated datasets that drive business results. We help companies maximize data value while operating efficiently and agilely with optimized data workflows and scalable processing infrastructures.",
-            key: "AdvancedDataProcessing",
+                " We offer an in-depth evaluation of your current business processes, identifying opportunities for AI implementation. We evaluate your organization's existing tech stack and skillsets to determine the best AI models that align with your goals, and our comprehensive risk evaluation ensures you are fully informed and prepared. Based on this analysis, we create a comprehensive roadmap that outlines key milestones, technologies to be adopted, and a timeline to achieve your goals.",
+            key: "DetailedEvaluationandRoadmapCreation",
         },
         {
-            title: "Predictive Analytics",
+            title: "Fine Tuning, Upgrading, and Maintenance",
             description:
-                "Predict future trends, behaviours, and consequences with precision and certainty using predictive analytics. We use historical data and powerful statistical methods to find patterns, predict changes, and limit risks with our predictive modelling algorithms. Predictive analytics helps organizations optimize resource allocation, manage risks, and seize opportunities, enabling sustainable growth and competitive advantage in dynamic marketplaces.",
-            key: "PredictiveAnalytics",
+                "With our Fine-Tuning, Upgrading, and Maintenance of Generative AI services, we ensure your AI systems evolve with time to keep up with the changing needs. Markets change, consumer behaviors shift, and technologies evolve. Our upgrading services help your models adapt to these changes, ensuring they remain relevant and practical. Continually tracking key performance metrics allows us to spot and address any decline in efficiency or accuracy, often before you notice an issue.",
+            key: "FineTuningUpgradingandMaintenance",
         },
+        
+    
     ],
     heading1: "What We Offer",
     pageDescription:
-        "Elevate Your Data Capabilities with Innovative Data Engineering and Analytics Solutions",
+        "Ready to unlock new possibilities for your business with Generative AI",
 };
 
 export const dataAnalyticsTechnologyExpertiseProps = {
@@ -94,15 +80,15 @@ export const whyChooseUsProps = {
     cardData: [
         {
             image: group,
-            title: "Scalable infrastructure",
+            title: "Advanced Frameworks",
             description:
-                "Flexibly adapt to changing data demands, ensuring optimal performance and resource allocation as your business grows.",
+                "We are well-versed in high-level LLM frameworks with hands-on experience in Langchain, LlamaIndex, and more. We are equipped to handle complex integrations tailored to your specific requirements.",
         },
         {
             image: fi_settings,
-            title: "Customized solutions",
+            title: "Seamless Cloud Integrations",
             description:
-                "Flexibly adapt to changing data demands, ensuring optimal performance and resource allocation as your business grows.",
+                "Our team has extensive experience with the top cloud AI offerings. Whether you're looking for solutions in Azure OpenAI, AWS Gen AI, GCP Vertex Gen AI, or others, we have the proficiency to ensure seamless integration, optimal performance, and scalability in any environment.",
         },
         {
             image: security,
@@ -112,16 +98,18 @@ export const whyChooseUsProps = {
         },
         {
             image: AI,
-            title: "Seamless integration",
+            title: "Tailored Solutions",
             description:
-                "Flexibly adapt to changing data demands, ensuring optimal performance and resource allocation as your business grows.",
+                "Your business is unique, and we treat it as such. We offer bespoke AI models and services that align perfectly with your goals, challenges, and market dynamics.",
         },
         {
             image: fi_diverseData,
-            title: "Diverse data expertise",
+            title: "End-to-End Service",
             description:
-                "Flexibly adapt to changing data demands, ensuring optimal performance and resource allocation as your business grows.",
+                "From initial consultation and strategy formulation to customized model development, integration, and ongoing maintenance, we are with you at every step.",
         },
+
+        
     ],
     heading1: "Why Choose Us",
     heading2: "Transform Your Data into Actionable Insights",
