@@ -219,7 +219,7 @@ body {
 .caseStudy {
   display: flex;
   justify-content: center;
-  margin: 0 20px;
+  margin: 0 20px 140px;
 }
 
 /* //info: caseStudyCard css */
@@ -229,11 +229,13 @@ body {
   width: 300px;
   border-radius: 10px;
   margin: 10px 20px;
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)); 
   transition: all 500ms ease; /* //info: for smooth transaction */
 }
 
 /* //info: caseStudyCard Hover code */
 .caseStudyCard:hover {
+  mask-image: none;
   width: 650px;
   .caseStudyContent {
     position: absolute;
@@ -353,8 +355,14 @@ body {
     margin-bottom: 20px;
   }
   .tech-stack-img {
-    width: 1200px;
-    height: 300px;
+    width: 1150px;
+    height: 211px;
+    margin: 0 auto;
+  }
+  .tech-logo {
+    max-width: 158px;
+    display: inline-block;
+    margin: 25px;
   }
 }
 

@@ -6,7 +6,7 @@ const DataAnalyticsWhatWeOffer = ({
   pageDescription,
   offerItems,
 }) => {
-  const [content, setContent] = useState("StreamlinedDataIntegration");
+  const [content, setContent] = useState(offerItems[0].key);
 
   // OfferItem component to handle individual offers
   const OfferItem = ({ title, isActive, onClick }) => {
