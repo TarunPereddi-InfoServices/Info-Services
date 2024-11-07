@@ -98,8 +98,6 @@ export default function Header() {
       { title: 'What We Do', submenu: 'whatWeDo' },
       { title: 'Insights', submenu: 'insights' },
       { title: 'Contact', link: '/contact' },
-      // info: for Mobile view navigation
-      { title: 'DataEngineering', link: '/dataEngineering' },
     ],
     whatWeDo: Object.keys(whatWeDoContent).map(category => ({ title: category, submenu: category })),
     insights: [
