@@ -1,0 +1,125 @@
+{
+    "whatWeDo": {
+      "categories": {
+        "Capabilities": [
+          {
+            "name": "Generative AI",
+            "description": "Explore endless creativity with Generative AI: where innovation meets imagination.",
+            "path": "/generativeAI"
+          },
+          {
+            "name": "Cognitive AI",
+            "description": "Think like a human, analyze like a machine: Get cognitive insights that matter",
+            "path": "/cognitiveAI"
+          },
+          {
+            "name": "Business Intelligence",
+            "description": "Data insights, real-world results - Business intelligence drives your transformation",
+            "path": "/bussinessIntelligance"
+          },
+          {
+            "name": "XOps",
+            "description": "Don't let your development process hold you back - Let us help you embrace Xops",
+            "path": "/xOps"
+          },
+          {
+            "name": "Cloud Native",
+            "description": "Always evolving, never standing still: Cloud-powered innovation",
+            "path": "/cloudNative"
+          },
+          {
+            "name": "Data Analytics & Engineering",
+            "description": "Our data engineering and analytics services pave the way for actionable insights and strategic decision-making.",
+            "path": "/dataEngineering"
+          },
+          {
+            "name": "Salesforce",
+            "description": "Don't just manage your business, transform it with Salesforce",
+            "path": "/salesforce"
+          },
+          {
+            "name": "Quality Engineering",
+            "description": "From startups to global brands - we elevate quality for businesses of all sizes",
+            "path": "/qualityEngineering"
+          },
+          {
+            "name": "Mobility Services",
+            "description": "App development made easy. We handle the tech, you focus on your vision",
+            "path": "/mobilityServices"
+          },
+          {
+            "name": "Technical Writing",
+            "description": "Unlock user understanding with expert documentation.",
+            "path": "/technicalWriting"
+          },
+          {
+            "name": "SAP",
+            "description": "Experience a seamless transition to SAP® S/4HANA with our expertly managed services!",
+            "path": "/SAP"
+          }
+        ],
+        "Products": [
+          {
+            "name": "XOps",
+            "description": "Don't let your development process hold you back - Let us help you embrace Xops",
+            "path": "/xOps"
+          },
+          {
+            "name": "Cloud Native",
+            "description": "Always evolving, never standing still: Cloud-powered innovation",
+            "path": "/cloudNative"
+          },
+          {
+            "name": "Data Analytics & Engineering",
+            "description": "Our data engineering and analytics services pave the way for actionable insights and strategic decision-making.",
+            "path": "/dataEngineering"
+          }
+        ],
+        "Technologies": [
+          {
+            "name": "Salesforce",
+            "description": "Don't just manage your business, transform it with Salesforce",
+            "path": "/salesforce"
+          },
+          {
+            "name": "Quality Engineering",
+            "description": "From startups to global brands - we elevate quality for businesses of all sizes",
+            "path": "/qualityEngineering"
+          },
+          {
+            "name": "Mobility Services",
+            "description": "App development made easy. We handle the tech, you focus on your vision",
+            "path": "/mobilityServices"
+          }
+        ],
+        "Industries": [
+          {
+            "name": "Technical Writing",
+            "description": "Unlock user understanding with expert documentation.",
+            "path": "/technicalWriting"
+          },
+          {
+            "name": "SAP",
+            "description": "Experience a seamless transition to SAP® S/4HANA with our expertly managed services!",
+            "path": "/sap"
+          }
+        ]
+      }
+    },
+    "insights": {
+      "content": [
+        {
+          "title": "Blogs",
+          "description": "Explore our blogs for a diverse selection of informative articles and engaging content."
+        },
+        {
+          "title": "Whitepapers",
+          "description": "Browse our whitepapers library for in-depth insights and expert analysis on key industry topics."
+        },
+        {
+          "title": "Case Studies",
+          "description": "Discover our case studies collection to explore real-world examples and success stories in action."
+        }
+      ]
+    }
+  }

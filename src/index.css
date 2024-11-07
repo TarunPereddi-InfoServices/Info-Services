@@ -99,9 +99,9 @@ body {
 }
 .heading_font {
   font-family: "Raleway", sans-serif;
-  /* font-optical-sizing: auto;
+  font-optical-sizing: auto;
   font-weight: 400;
-  font-style: normal; */
+  font-style: normal;
 }
 /* Border to the boxes in testimonial section */
 .gradient-border {
@@ -123,7 +123,7 @@ body {
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
-} 
+}
 
 /* .card{
   width:100vw;
@@ -137,6 +137,11 @@ body {
 
 
 /* Data Engineering CSS Start */
+.bannerDescription {
+  white-space: pre-line;
+  line-height: 40px;
+}
+
 
 .font-gray {
   color: #6b6b6b;
@@ -211,24 +216,53 @@ body {
 }
 
 /* //info: caseStudy section */
+
 .caseStudy {
   display: flex;
-  justify-content: center;
-  margin: 0 20px;
+  margin: 0 20px 140px;
 }
 
 /* //info: caseStudyCard css */
-.caseStudyCard {
+
+.caseStudyCard, .caseStudyCardForTwo {
   position: relative;
   height: 406px;
-  width: 300px;
   border-radius: 10px;
   margin: 10px 20px;
+  /* mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));  */
   transition: all 500ms ease; /* //info: for smooth transaction */
 }
+.caseStudyCard {
+  width: 270px;
+}
+.caseStudyCardForTwo {
+  width: 650px;
+  .caseStudyContent {
+    position: absolute;
+    bottom: 120px;
+    left: 27px;
+  }
+  .caseStudyBtn { 
+    display: none;
+  }
+  .caseStudyPara {
+    width: 100%;
+  }
+  
+  .caseStudydescription {
+    display: block;
+    width: 80%;
+    font-size: 15px;
+  }
+  
+  .caseStudyReadMoreBtn {
+    display: block;
+  }
+}
 
-/* //info: caseStudyCard Hover code */
+  /* //info: caseStudyCard Hover code */
 .caseStudyCard:hover {
+  mask-image: none;
   width: 650px;
   .caseStudyContent {
     position: absolute;
@@ -255,6 +289,15 @@ body {
   .bgImg {
     backdrop-filter: blur(10px);
   } */
+}
+
+.card-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
 }
 
 .caseStudyContent {
@@ -329,15 +372,13 @@ body {
   padding: 10px;
   border-radius: 8px;
 }
+
 .btn-shade {
   border: none;
   outline: none;
   background: linear-gradient(to right, #fff, #F1F1F1);
 }
 
-.bg-class {
-  background: linear-gradient(270deg, #405E9E 0%, #8F23AE 49%, #684EB2 100%);
-}
 .techno-expertise-container {
   top: -40px;
   position: relative;
@@ -351,8 +392,14 @@ body {
     margin-bottom: 20px;
   }
   .tech-stack-img {
-    width: 1200px;
-    height: 300px;
+    width: 1150px;
+    height: 211px;
+    margin: 0 auto;
+  }
+  .tech-logo {
+    max-width: 158px;
+    display: inline-block;
+    margin: 25px;
   }
 }
 
