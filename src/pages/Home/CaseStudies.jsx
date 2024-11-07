@@ -81,76 +81,6 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
       return () => clearInterval(interval);
     }
   }, [images.length, isWide]);
-
-  if (isMobile) {
-    return (
-      <div className="relative w-full h-[500px] rounded-3xl overflow-hidden bg-[#151515]">
-        {/* Images Container */}
-        <div className="absolute inset-0 overflow-hidden">
-          {images.map((image, idx) => (
-            <motion.div
-              key={idx}
-              className="absolute inset-0 w-full h-full"
-              initial={{ y: `${idx * 100}%` }}
-              animate={{ 
-                y: `${(idx - currentImageIndex) * 100}%`,
-                opacity: idx === currentImageIndex ? 1 : 0.3
-              }}
-              transition={{
-                y: { type: "tween", duration: 0.8, ease: "easeInOut" },
-                opacity: { duration: 0.5 }
-              }}
-            >
-              <img
-                src={image}
-                alt={`${title} ${idx + 1}`}
-                className="w-full h-full object-cover brightness-75 grayscale"
-              />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
-
-        {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
-          <h3 className="text-sm underline underline-offset-1 font-normal mb-2 text-[#DFDFDF]">
-            Case Studies
-          </h3>
-          <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#684EB2] via-[#8F23AE] to-[#684EB2] inline-block text-transparent bg-clip-text">
-            {title}
-          </h2>
-          <p className="text-white/90 text-sm leading-relaxed mb-8">
-            {description}
-          </p>
-
-          {/* Progress Indicators */}
-          <div className="flex justify-center space-x-3 mt-4">
-            {images.map((_, i) => (
-              <div
-                key={i}
-                className="h-[2px] w-12 overflow-hidden bg-gray-600"
-              >
-                <motion.div
-                  className="h-full bg-white origin-left"
-                  initial={{ scaleX: 0 }}
-                  animate={{ 
-                    scaleX: currentImageIndex === i ? 1 : 0 
-                  }}
-                  transition={{ 
-                    duration: 4,
-                    ease: "linear"
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   // Determine if the animation should be bottom-to-top or top-to-bottom
   const isBottomToTop = index === 1 || index === 3; // 2nd and 4th cards
   const slideVariants = {
@@ -239,7 +169,6 @@ const CaseStudyCard = ({ title, description, images, isWide,index,isMobile, curr
     </motion.div>
   );
 };
-
 const CaseStudies = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -265,25 +194,25 @@ const CaseStudies = () => {
   }, []);
 
 
-  useEffect(() => {
-    if (isMobile) {
-      const imageInterval = setInterval(() => {
-        setCurrentImageIndex((prev) => {
-          const nextIndex = (prev + 1) % caseStudiesData[currentSlide].images.length;
-          // If we've shown all images in current slide
-          if (nextIndex === 0) {
-            // Schedule next slide transition
-            setTimeout(() => {
-              setCurrentSlide((prevSlide) => (prevSlide + 1) % caseStudiesData.length);
-            }, 1000);
-          }
-          return nextIndex;
-        });
-      }, 4000);
+  // useEffect(() => {
+  //   if (isMobile) {
+  //     const imageInterval = setInterval(() => {
+  //       setCurrentImageIndex((prev) => {
+  //         const nextIndex = (prev + 1) % caseStudiesData[currentSlide].images.length;
+  //         // If we've shown all images in current slide
+  //         if (nextIndex === 0) {
+  //           // Schedule next slide transition
+  //           setTimeout(() => {
+  //             setCurrentSlide((prevSlide) => (prevSlide + 1) % caseStudiesData.length);
+  //           }, 1000);
+  //         }
+  //         return nextIndex;
+  //       });
+  //     }, 4000);
 
-      return () => clearInterval(imageInterval);
-    }
-  }, [currentSlide, isMobile]);
+  //     return () => clearInterval(imageInterval);
+  //   }
+  // }, [currentSlide, isMobile]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -293,8 +222,11 @@ const CaseStudies = () => {
   if (isMobile) {
     return (
     <>
-      <div className="bg-[#151515] min-h-screen relative overflow-hidden pt-12 mb-8">
-      <div className="relative h-[calc(100vh-140px)] p-10 mx-10 rounded-[24px] overflow-hidden">
+      {/* <div className=" relative min-h-screen bg-[#151515] z-0 pt-12 mb-8"> */}
+      <div className=" sticky top-0  min-h-screen overflow-hidden bg-[#151515] rounded-t-[50px] "
+      
+      >
+      <div className="relative h-[calc(100vh-140px)] p-10 mx-10 rounded-[24px] overflow-hidden  mt-40">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
@@ -315,6 +247,7 @@ const CaseStudies = () => {
         </AnimatePresence>
       </div>
     </div>
+
       </>
     );
   }
